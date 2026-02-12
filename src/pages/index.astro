@@ -1,14 +1,7 @@
 ---
 import "../styles/global.css";
-
-import logo from "../assets/images/logo/logo.png";
-import heroImage from "../assets/images/hero/hero.png";
-
-import Ticket3D from "../components/Ticket3D.astro";
-import Expectativas3 from "../components/Expectativas3.astro";
-import Pilares from "../components/Pilares.astro";
-import CarouselPalestrantes from "../components/CarouselPalestrantes.astro";
-import Footer from "../components/Footer.astro";
+import logo from "../../public/LOGO ENTRE NÓS.png";
+import heroImage from "../assets/images/hero/hero.jpeg";
 ---
 
 <!DOCTYPE html>
@@ -18,83 +11,174 @@ import Footer from "../components/Footer.astro";
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;700;800&display=swap"
       rel="stylesheet"
     />
-    <title>Entre Nós — Os 4 Pilares do Empreendedorismo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Entre Nós — Os 4 Pilares do Empreendedorismo</title>
   </head>
-
   <body>
-    <!-- NAVBAR -->
-    <nav class="navbar">
-      <div class="nav-inner">
-        <a class="brand" href="#topo" aria-label="Ir para o topo">
-          <img src={logo.src} alt="Entre Nós" />
-        </a>
+    <header class="hero" id="topo">
+      <div class="container">
+        <img class="logo" src={logo.src} alt="Logo Entre Nós" />
+        <p class="section-tag">Headline - Dobra 1</p>
+        <h1>Entrepreneur</h1>
+        <p class="sub-headline">
+          Palavra de origem francesa que atravessa séculos e que, antes de nomear
+          negócios, nomeia espíritos.
+        </p>
 
-        <div class="nav-links" aria-label="Navegação">
-          <a href="#evento">Evento</a>
-          <a href="#experiencia">Experiência</a>
-          <a href="#pilares">Pilares</a>
-          <a href="#palestrantes">Palestrantes</a>
-
-          <!-- ✅ CTA ahora manda al BOLETO -->
-          <a class="cta" href="#ingresso">Quero minha vaga</a>
+        <div class="hero-grid">
+          <div>
+            <p>
+              Há pessoas que apenas vivem o mundo… e há aquelas que o remodelam
+              silenciosamente, com intenção, sensibilidade e coragem. Essas são as
+              empreendedoras entre nós, mulheres que transformam ambientes,
+              relações, caminhos.
+            </p>
+            <p><em>*Mulheres como você!*</em></p>
+            <p>
+              É por isso que nasce o Entre Nós: Os 4 Pilares do Empreendedorismo. Um
+              encontro que transcende técnicas e estratégias.
+            </p>
+            <p>
+              Aqui, o espiritual, o emocional, o financeiro e a imagem se entrelaçam
+              para revelar aquilo que você já carrega por dentro, mas ainda não
+              mostrou ao mundo. Uma imersão guiada por autoridades que não apenas
+              ensinam: inspiram.
+            </p>
+            <a class="cta" href="#cta-final">QUERO MINHA VAGA NO MOVIMENTO</a>
+          </div>
+          <img
+            class="hero-image"
+            src={heroImage.src}
+            alt="Mulheres fortes e conectadas no movimento Entre Nós"
+          />
         </div>
       </div>
-    </nav>
+    </header>
 
-    <!-- HERO -->
-    <section id="topo" class="hero">
-      <div class="container hero-pro">
-        <div class="hero-copy">
-          <h1 class="hero-title">
-            FINAL DE SEMANA<br />
-            DE ACELERAÇÃO<br />
-            PARA EMPRESÁRIAS<br />
-            <span>QUEEN</span>
-          </h1>
+    <main>
+      <section class="section container" id="manifesto">
+        <p class="section-tag">O Manifesto</p>
+        <h2>Você é mais do que o seu cargo.</h2>
+        <p>
+          Muitas vezes nos dizem que empreender é sobre abrir uma empresa, emitir
+          notas e gerir funcionários. Na verdade, isso é apenas a concretização
+          jurídica de algo que já existe dentro de você.
+        </p>
+        <p>
+          O espírito empreendedor está na professora que inova na sala de aula. Na
+          cientista que busca a cura. Na executiva que lidera com estratégia. Gerente
+          que lidera com coragem. O empreendedorismo é uma postura de quem não
+          aceita ser coadjuvante da própria história.
+        </p>
+        <p>
+          O Entre Nós nasceu para reunir essas mulheres. Aquelas que entenderam que,
+          para o mundo lá fora funcionar, as engrenagens aqui dentro precisam estar
+          ajustadas.
+        </p>
+      </section>
 
-          <p class="hero-text">
-            Um final de semana presencial para acelerar seus resultados no universo
-            digital, elevar sua percepção de valor e destravar sua produção de
-            conteúdo com estratégia e posicionamento.
-          </p>
+      <section class="section container" id="pilares">
+        <p class="section-tag">Os 4 Pilares</p>
+        <h2>A estrutura que sustenta a sua evolução.</h2>
+        <p>
+          Para que sua trajetória seja sólida, não basta apenas "trabalhar muito". É
+          preciso alinhar as quatro dimensões que definem sua presença no mundo:
+        </p>
+        <ol>
+          <li>
+            <strong>Imagem Pessoal: Sua primeira mensagem.</strong> Transforme sua
+            imagem em um ativo estratégico que comunica autoridade, intenção e
+            respeito antes mesmo de você dizer a primeira palavra.
+          </li>
+          <li>
+            <strong>Neurociência: O domínio da sua mente.</strong> Entenda os
+            processos biológicos por trás da sua tomada de decisão, foco e
+            inteligência emocional para performar sem esgotamento.
+          </li>
+          <li>
+            <strong>Finanças: A base da sua liberdade.</strong> O dinheiro não é o
+            fim, mas o meio que permite que você faça escolhas com autonomia e
+            segurança.
+          </li>
+          <li>
+            <strong>Espiritualidade: O seu alicerce invisível.</strong> O
+            alinhamento com seu propósito e valores que traz clareza e paz para
+            sustentar os desafios da jornada.
+          </li>
+        </ol>
+      </section>
 
-          <!-- ✅ CTA ahora manda al BOLETO -->
-          <a href="#ingresso" class="hero-cta">Quero minha vaga</a>
-        </div>
+      <section class="section container" id="palestrantes">
+        <p class="section-tag">As Palestrantes / Autoridades</p>
+        <p class="aviso">ESTE APENAS DEPOIS DE REVELADA AS PALESTRANTES.</p>
+        <h2>Quatro mentes, um único propósito.</h2>
+        <p>
+          Conheça as especialistas que guiarão você através dessa jornada de
+          alinhamento:
+        </p>
+        <ul>
+          <li>
+            Silmara [Sobrenome]: (Breve descrição da Silmara focando na visão de
+            liderança e no projeto "Entre Nós").
+          </li>
+          <li>[Nome Palestrante 2]: Especialista em Imagem Pessoal.</li>
+          <li>
+            [Nome Palestrante 3]: Especialista em Neurociência/Saúde Mental.
+          </li>
+          <li>[Nome Palestrante 4]: Especialista em Finanças.</li>
+        </ul>
+      </section>
 
-        <div class="hero-image">
-          <img src={heroImage.src} alt="Entre Nós — Queen Experience" />
-        </div>
-      </div>
-    </section>
+      <section class="section container" id="publico">
+        <p class="section-tag">Para quem é o evento</p>
+        <h2>Este lugar é seu se você:</h2>
+        <ul>
+          <li>É uma mulher que busca protagonismo em sua área de atuação.</li>
+          <li>
+            Sente que está negligenciando algum pilar da vida para ter sucesso
+            profissional.
+          </li>
+          <li>
+            Deseja fazer networking com outras mulheres que compartilham da mesma
+            visão de mundo.
+          </li>
+          <li>
+            Entende que o autoconhecimento é o melhor investimento para sua carreira.
+          </li>
+        </ul>
+      </section>
 
-    <!-- SEÇÕES -->
-    <section id="evento">
-      <!-- Si vos tenías EventInfoCard acá antes, ponelo acá -->
-      <!-- <EventInfoCard /> -->
-    </section>
+      <section class="section container" id="cta-final">
+        <p class="section-tag">Rodapé / CTA Final</p>
+        <h2>
+          Chegou a hora de olhar para o que realmente sustenta o seu sucesso.
+        </h2>
+        <p>
+          Data: [Inserir Data] Local: [Inserir Local/Plataforma] Investimento:
+          [Inserir Valor]
+        </p>
+        <a class="cta" href="#topo">QUERO FAZER PARTE DO ENTRE NÓS</a>
+      </section>
 
-    <section id="ingresso">
-      <Ticket3D />
-    </section>
-
-    <section id="experiencia">
-      <Expectativas3 />
-    </section>
-
-    <section id="pilares">
-      <Pilares />
-    </section>
-
-    <section id="palestrantes">
-      <CarouselPalestrantes />
-    </section>
-
-    <!-- ✅ Footer real -->
-    <Footer logoSrc={logo.src} />
+      <section class="section container" id="design-dicas">
+        <p class="section-tag">Dicas para o Design:</p>
+        <ul>
+          <li>
+            Espaço em branco: Use uma página limpa, com fontes e cores do evento.
+          </li>
+          <li>
+            Fotos de impacto: Use fotos que transmitam essa ideia de "mulheres
+            reais, mas extremamente competentes".
+          </li>
+          <li>
+            Conexão: Use fotos de mãos dadas ou olhares diretos para reforçar o nome
+            "Entre Nós".
+          </li>
+        </ul>
+      </section>
+    </main>
   </body>
 </html>
