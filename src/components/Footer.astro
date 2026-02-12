@@ -1,0 +1,33 @@
+---
+const { logoSrc = "" } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      {logoSrc ? <img src={logoSrc} alt="Entre Nós" loading="lazy" /> : null}
+      <p class="footer-note">
+        Entre Nós — Os 4 Pilares do Empreendedorismo.
+      </p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Links do rodapé">
+      <a href="#evento">Evento</a>
+      <a href="#ingresso">Ingresso</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#pilares">Pilares</a>
+      <a href="#palestrantes">Palestrantes</a>
+    </nav>
+
+    <div class="footer-cta">
+      <a class="footer-btn" href="#ingresso">Quero minha vaga</a>
+      <span class="footer-small">Você será direcionada para a inscrição oficial.</span>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <span>© {new Date().getFullYear()} Entre Nós</span>
+    <span class="dot">•</span>
+    <span>Todos os direitos reservados</span>
+  </div>
+</footer>

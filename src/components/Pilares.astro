@@ -1,0 +1,123 @@
+---
+const pilares = [
+  {
+    num: "01",
+    title: "Imagem Pessoal",
+    text:
+      "Sua primeira mensagem. Transforme sua imagem em um ativo estratégico — autoridade, intenção e respeito antes da primeira palavra.",
+  },
+  {
+    num: "02",
+    title: "Neurociência",
+    text:
+      "O domínio da sua mente. Decisão, foco e inteligência emocional para performar com clareza — sem esgotamento.",
+  },
+  {
+    num: "03",
+    title: "Finanças",
+    text:
+      "A base da sua liberdade. O dinheiro não é o fim — é o meio que permite escolhas com autonomia e segurança.",
+  },
+  {
+    num: "04",
+    title: "Espiritualidade",
+    text:
+      "Seu alicerce invisível. Alinhamento com propósito e valores para sustentar a jornada com paz e direção.",
+  },
+];
+---
+
+<section class="pilares">
+  <div class="container">
+    <header class="pilares-head">
+      <h2>Os 4 Pilares</h2>
+      <p>A estrutura que sustenta a sua evolução.</p>
+    </header>
+
+    <div class="pilares-grid">
+      {pilares.map((p) => (
+        <article class="pilar">
+          <span class="pilar-num">{p.num}</span>
+          <h3>{p.title}</h3>
+          <p>{p.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.pilares {
+  padding: 96px 0;
+}
+
+.pilares-head {
+  max-width: 520px;
+  margin-bottom: 56px;
+}
+
+.pilares-head h2 {
+  font-family: var(--font-serif);
+  font-size: 42px;
+  margin: 0 0 8px;
+}
+
+.pilares-head p {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+/* GRID */
+.pilares-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+/* CARD */
+.pilar {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px 26px 32px;
+}
+
+.pilar-num {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--gold);
+}
+
+.pilar h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  margin: 0 0 12px;
+  color: var(--gold);
+}
+
+.pilar p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+  .pilares-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .pilares {
+    padding: 72px 0;
+  }
+
+  .pilares-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

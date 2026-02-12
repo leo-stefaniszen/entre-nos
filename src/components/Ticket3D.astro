@@ -1,0 +1,382 @@
+---
+type Props = {
+  title?: string;
+  subtitle?: string;
+  code?: string;
+  access?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+};
+
+const {
+  title = "ENTRE NÓS — PASS",
+  subtitle = "Os 4 Pilares do Empreendedorismo",
+  code = "EN-2026-0150",
+  access = "Entrada oficial",
+  ctaLabel = "QUERO FAZER PARTE",
+  ctaHref = "https://octaadm.com.br/public/eventoapp?evento=Entrenos",
+} = Astro.props;
+---
+
+<section class="ticket-wrap">
+  <div class="container">
+    <header class="ticket-head">
+      <h2 class="ticket-h2">SEU INGRESSO</h2>
+      <p class="ticket-sub">Um passaporte simbólico. Premium, direto e com presença.</p>
+    </header>
+
+    <div class="ticket-stage">
+      <article class="ticket" data-ticket>
+        <!-- Brillos y foil -->
+        <div class="foil" aria-hidden="true"></div>
+        <div class="shine" aria-hidden="true"></div>
+        <div class="sparkles" aria-hidden="true"></div>
+
+        <div class="ticket-grid">
+          <!-- LADO IZQ -->
+          <div class="ticket-left">
+            <div class="pill">VIP / MOVIMENTO</div>
+
+            <h3 class="ticket-title">
+              <span class="gold">{title}</span>
+            </h3>
+            <p class="ticket-desc">{subtitle}</p>
+
+            <div class="ticket-line"></div>
+
+            <div class="ticket-meta">
+              <div class="meta-row">
+                <span class="k">CÓDIGO</span>
+                <span class="v">{code}</span>
+              </div>
+              <div class="meta-row">
+                <span class="k">ACESSO</span>
+                <span class="v">{access}</span>
+              </div>
+            </div>
+
+            <div class="ticket-actions">
+              <a class="ticket-cta" href={ctaHref}>{ctaLabel}</a>
+              <span class="ticket-note">Clique para garantir sua vaga</span>
+            </div>
+          </div>
+
+          <!-- LADO DER -->
+          <div class="ticket-right">
+            <div class="seal">
+              <div class="seal-ring"></div>
+              <div class="seal-text">
+                <span>ENTRE</span>
+                <span>NÓS</span>
+                <span class="gold">PASS</span>
+              </div>
+            </div>
+
+            <div class="bars" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+
+            <div class="microtext" aria-hidden="true">
+              ENTRE NÓS • MOVIMENTO • ENTRE NÓS • MOVIMENTO • ENTRE NÓS • MOVIMENTO
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const card = document.querySelector("[data-ticket]");
+  if (card) {
+    const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
+
+    const move = (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;   // 0..1
+      const py = (e.clientY - r.top) / r.height;   // 0..1
+
+      const rx = clamp((0.5 - py) * 10, -8, 8);
+      const ry = clamp((px - 0.5) * 14, -10, 10);
+
+      card.style.setProperty("--rx", rx.toFixed(2) + "deg");
+      card.style.setProperty("--ry", ry.toFixed(2) + "deg");
+      card.style.setProperty("--mx", (px * 100).toFixed(2) + "%");
+      card.style.setProperty("--my", (py * 100).toFixed(2) + "%");
+      card.classList.add("is-hover");
+    };
+
+    const leave = () => {
+      card.classList.remove("is-hover");
+      card.style.setProperty("--rx", "0deg");
+      card.style.setProperty("--ry", "0deg");
+      card.style.setProperty("--mx", "50%");
+      card.style.setProperty("--my", "45%");
+    };
+
+    card.addEventListener("mousemove", move);
+    card.addEventListener("mouseleave", leave);
+    leave();
+  }
+</script>
+
+<style>
+  .ticket-wrap{ padding: 56px 0; }
+  .ticket-head{ margin-bottom: 16px; }
+  .ticket-h2{
+    margin:0;
+    font-family: var(--font-serif);
+    letter-spacing: .3px;
+    font-size: 34px;
+  }
+  .ticket-sub{ margin:8px 0 0; color: var(--muted); }
+
+  .ticket-stage{
+    padding: 20px 0;
+  }
+
+  /* ====== TICKET BASE ====== */
+  .ticket{
+    --rx: 0deg;
+    --ry: 0deg;
+    --mx: 50%;
+    --my: 45%;
+
+    position: relative;
+    border-radius: 22px;
+    border: 1px solid rgba(218,193,177,.18);
+    background:
+      radial-gradient(1200px 600px at 20% 10%, rgba(230,194,122,.10), transparent 55%),
+      radial-gradient(900px 600px at 70% 30%, rgba(127,31,14,.35), transparent 65%),
+      linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.06));
+    overflow: hidden;
+
+    transform-style: preserve-3d;
+    transform: perspective(1100px) rotateX(var(--rx)) rotateY(var(--ry));
+    transition: transform .25s ease, box-shadow .25s ease;
+    box-shadow:
+      0 18px 60px rgba(0,0,0,.35),
+      inset 0 0 0 1px rgba(230,194,122,.08);
+  }
+  .ticket.is-hover{
+    box-shadow:
+      0 24px 90px rgba(0,0,0,.45),
+      0 0 0 1px rgba(230,194,122,.18) inset;
+  }
+
+  /* ====== FOIL / SHINE / SPARKLES ====== */
+  .foil{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(500px 300px at var(--mx) var(--my), rgba(230,194,122,.22), transparent 55%),
+      linear-gradient(135deg,
+        rgba(230,194,122,.08),
+        rgba(218,193,177,.03),
+        rgba(230,194,122,.06));
+    mix-blend-mode: screen;
+    opacity: .85;
+    pointer-events:none;
+  }
+
+  .shine{
+    position:absolute; inset:-40%;
+    background: linear-gradient(110deg,
+      transparent 40%,
+      rgba(230,194,122,.18) 48%,
+      rgba(255,244,210,.22) 52%,
+      transparent 60%);
+    transform: translateX(-30%) rotate(6deg);
+    opacity: 0;
+    filter: blur(1px);
+    pointer-events:none;
+    transition: opacity .2s ease;
+  }
+  .ticket.is-hover .shine{
+    opacity: 1;
+    animation: sweep 1.6s ease-in-out infinite;
+  }
+  @keyframes sweep{
+    0%{ transform: translateX(-35%) rotate(6deg); }
+    100%{ transform: translateX(35%) rotate(6deg); }
+  }
+
+  .sparkles{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(2px 2px at 12% 28%, rgba(255,244,210,.35), transparent 60%),
+      radial-gradient(2px 2px at 32% 62%, rgba(230,194,122,.35), transparent 60%),
+      radial-gradient(2px 2px at 68% 24%, rgba(255,244,210,.32), transparent 60%),
+      radial-gradient(2px 2px at 82% 70%, rgba(230,194,122,.30), transparent 60%);
+    opacity: .55;
+    mix-blend-mode: screen;
+    pointer-events:none;
+    animation: twinkle 2.8s ease-in-out infinite;
+  }
+  @keyframes twinkle{
+    0%,100%{ opacity:.38; }
+    50%{ opacity:.75; }
+  }
+
+  /* ====== LAYOUT ====== */
+  .ticket-grid{
+    display:grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 0;
+    min-height: 320px;
+  }
+  .ticket-left{
+    padding: 26px 26px 24px;
+  }
+  .ticket-right{
+    position: relative;
+    padding: 26px;
+    border-left: 1px dashed rgba(218,193,177,.25);
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .pill{
+    display:inline-flex;
+    padding: 8px 12px;
+    border: 1px solid rgba(230,194,122,.25);
+    border-radius: 999px;
+    color: rgba(218,193,177,.85);
+    font-weight: 800;
+    letter-spacing:.6px;
+    text-transform: uppercase;
+    font-size: 12px;
+    background: rgba(0,0,0,.10);
+    margin-bottom: 14px;
+  }
+
+  .ticket-title{
+    margin:0;
+    font-family: var(--font-serif);
+    letter-spacing: .2px;
+    font-size: 40px;
+    line-height: 1.02;
+  }
+  .gold{ color: var(--gold); text-shadow: 0 0 18px rgba(230,194,122,.12); }
+
+  .ticket-desc{
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 16px;
+  }
+
+  .ticket-line{
+    height:1px;
+    background: linear-gradient(90deg, rgba(230,194,122,.22), rgba(218,193,177,.10), transparent);
+    margin: 18px 0 14px;
+  }
+
+  .ticket-meta{ display:grid; gap: 10px; }
+  .meta-row{
+    display:flex; justify-content: space-between; align-items: baseline;
+    gap: 12px;
+  }
+  .k{
+    color: rgba(218,193,177,.70);
+    font-weight: 900;
+    letter-spacing:.8px;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  .v{
+    color: rgba(218,193,177,.90);
+    font-weight: 700;
+  }
+
+  .ticket-actions{
+    margin-top: 18px;
+    display:flex;
+    align-items:center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .ticket-cta{
+    display:inline-block;
+    padding: 14px 18px;
+    background: rgba(230,194,122,.14);
+    border: 1px solid rgba(230,194,122,.35);
+    color: var(--gold);
+    font-weight: 900;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    text-decoration:none;
+    border-radius: 14px;
+    backdrop-filter: blur(6px);
+    transition: transform .15s ease, background .2s ease, border-color .2s ease;
+  }
+  .ticket-cta:hover{
+    transform: translateY(-1px);
+    background: rgba(230,194,122,.20);
+    border-color: rgba(230,194,122,.55);
+  }
+
+  .ticket-note{
+    color: rgba(218,193,177,.65);
+    font-size: 13px;
+  }
+
+  /* ====== RIGHT SIDE DETAILS ====== */
+  .seal{
+    position: relative;
+    width: 170px;
+    height: 170px;
+    margin-left:auto;
+    border-radius: 999px;
+    display:grid;
+    place-items:center;
+  }
+  .seal-ring{
+    position:absolute; inset:0;
+    border-radius: 999px;
+    border: 1px solid rgba(230,194,122,.22);
+    box-shadow:
+      inset 0 0 0 1px rgba(218,193,177,.10),
+      0 0 30px rgba(230,194,122,.10);
+  }
+  .seal-text{
+    text-align:center;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing:.6px;
+    line-height: 1.05;
+    color: rgba(218,193,177,.85);
+  }
+  .seal-text span{ display:block; font-size: 18px; }
+  .seal-text .gold{ font-size: 18px; }
+
+  .bars{
+    display:flex;
+    gap: 12px;
+    align-items:center;
+    justify-content: space-between;
+    opacity: .85;
+  }
+  .bars span{
+    height: 10px;
+    flex: 1;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(230,194,122,.20), rgba(218,193,177,.10));
+    box-shadow: inset 0 0 0 1px rgba(218,193,177,.10);
+  }
+
+  .microtext{
+    color: rgba(218,193,177,.35);
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+
+  /* ====== RESPONSIVE ====== */
+  @media (max-width: 900px){
+    .ticket-grid{ grid-template-columns: 1fr; }
+    .ticket-right{ border-left: none; border-top: 1px dashed rgba(218,193,177,.25); }
+    .seal{ margin: 0 auto; }
+  }
+</style>

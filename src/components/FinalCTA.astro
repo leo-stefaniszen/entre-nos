@@ -1,0 +1,38 @@
+---
+type Props = {
+  ctaHref?: string;
+};
+const { ctaHref = "https://octaadm.com.br/public/eventoapp?evento=Entrenos" } = Astro.props;
+---
+
+<footer class="f">
+  <div class="container">
+    <h2 class="f-title">Chegou a hora.</h2>
+    <p class="f-text">
+      Olhe para o que realmente sustenta o seu sucesso — e entre no movimento.
+    </p>
+
+    <p class="f-meta">
+      Data: <strong>[Inserir Data]</strong> &nbsp; Local: <strong>[Inserir Local/Plataforma]</strong> &nbsp; Investimento: <strong>[Inserir Valor]</strong>
+    </p>
+
+    <a class="f-cta" href={ctaHref}>QUERO FAZER PARTE DO ENTRE NÓS</a>
+  </div>
+</footer>
+
+<style>
+  .f{ padding: 72px 0; border-top: 1px solid var(--border); }
+  .f-title{ margin:0 0 10px; font-family: var(--font-serif); }
+  .f-text{ margin:0 0 12px; color: var(--muted); line-height: 1.7; max-width: 70ch; }
+  .f-meta{ margin:0 0 18px; color: rgba(218,193,177,.62); }
+  .f-cta{
+    display:inline-block;
+    background: var(--gold);
+    color:#2b120d;
+    padding: 16px 22px;
+    font-weight: 900;
+    letter-spacing: .7px;
+    text-transform: uppercase;
+    text-decoration:none;
+  }
+</style>

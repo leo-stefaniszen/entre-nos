@@ -1,0 +1,266 @@
+---
+type Item = {
+  name: string;
+  role: string;
+  highlight?: string;
+  desc: string;
+  img: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  revealed?: boolean;
+};
+
+type Props = { revealAll?: boolean; };
+
+const { revealAll = false } = Astro.props;
+
+const items: Item[] = [
+  {
+    name: "Silmara Stefaniszen",
+    role: 'Idealizadora do "Entre Nós"',
+    highlight: "Liderança, presença e visão de movimento.",
+    desc: "Uma imersão para alinhar identidade, estratégia e propósito — com presença real.",
+    img: "/palestrantes/silmara_card.png",
+    ctaLabel: "Ver mais",
+    ctaHref: "#",
+    revealed: true,
+  },
+  {
+    name: "Em breve",
+    role: "Especialista em Imagem Pessoal",
+    highlight: "Revelação em breve.",
+    desc: "Conteúdo focado em imagem como ativo estratégico e posicionamento com intenção.",
+    img: "/palestrantes/icognito_1_card.png",
+    ctaLabel: "Em breve",
+    ctaHref: "#",
+    revealed: false,
+  },
+  {
+    name: "Em breve",
+    role: "Especialista em Neurociência",
+    highlight: "Revelação em breve.",
+    desc: "Foco, tomada de decisão e inteligência emocional — performance sem esgotamento.",
+    img: "/palestrantes/icognito_2_card.png",
+    ctaLabel: "Em breve",
+    ctaHref: "#",
+    revealed: false,
+  },
+  {
+    name: "Em breve",
+    role: "Especialista em Finanças",
+    highlight: "Revelação em breve.",
+    desc: "Liberdade financeira como base para escolhas com autonomia e segurança.",
+    img: "/palestrantes/icognito_3_card.png",
+    ctaLabel: "Em breve",
+    ctaHref: "#",
+    revealed: false,
+  },
+];
+---
+
+<section class="spk" aria-label="Carrossel de palestrantes">
+  <div class="container">
+    <header class="spk-head">
+      <h2 class="spk-title"><span>As</span> Palestrantes</h2>
+      <p class="spk-sub">Quatro mentes. Um propósito.</p>
+    </header>
+
+    <div class="spk-shell" data-carousel>
+      <button class="nav prev" type="button" aria-label="Anterior">
+        <span aria-hidden="true">‹</span>
+      </button>
+
+      <div class="viewport">
+        <div class="track" data-track>
+          {items.map((it, idx) => {
+            const ok = revealAll || it.revealed;
+            const name = ok ? it.name : "Em breve";
+            const role = ok ? it.role : "Palestrante";
+            const highlight = ok ? (it.highlight ?? "") : "Revelação em breve.";
+            const desc = ok ? it.desc : "Vamos revelar no momento certo. 👀";
+            const img = it.img;
+            const ctaLabel = ok ? (it.ctaLabel ?? "Ver mais") : "Em breve";
+            const ctaHref = ok ? (it.ctaHref ?? "#") : "#";
+
+            return (
+              <article class="slide" data-slide={idx}>
+                <div class="phone">
+                  <div class="phone-inner">
+                    <img src={img} alt={name} loading="lazy" />
+                  </div>
+                </div>
+
+                <div class="card">
+                  <h3 class="name">{name}</h3>
+                  <p class="role">{role}</p>
+
+                  {highlight && (
+                    <p class="highlight">
+                      <strong>{highlight}</strong>
+                    </p>
+                  )}
+
+                  <p class="desc">{desc}</p>
+
+                  <a class={`more ${ok ? "" : "disabled"}`} href={ctaHref} aria-disabled={!ok}>
+                    {ctaLabel} <span class="arrow" aria-hidden="true">›</span>
+                  </a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+
+      <button class="nav next" type="button" aria-label="Próximo">
+        <span aria-hidden="true">›</span>
+      </button>
+    </div>
+
+    <div class="dots" data-dots aria-label="Paginação do carrossel"></div>
+  </div>
+</section>
+
+<script is:inline>
+  const carousels = document.querySelectorAll("[data-carousel]");
+
+  carousels.forEach((shell) => {
+    const track = shell.querySelector("[data-track]");
+    const slides = Array.from(shell.querySelectorAll("[data-slide]"));
+    const prev = shell.querySelector(".prev");
+    const next = shell.querySelector(".next");
+
+    const section = shell.closest("section");
+    const dotsWrap = section?.querySelector("[data-dots]");
+
+    if (!track || slides.length === 0) return;
+
+    let active = 0;
+    const wrap = (i) => {
+      const n = slides.length;
+      return ((i % n) + n) % n; // ✅ siempre 0..n-1 (loop infinito)
+    };
+
+    const updateDots = () => {
+      if (!dotsWrap) return;
+      const dots = Array.from(dotsWrap.querySelectorAll("button"));
+      dots.forEach((d, idx) => d.setAttribute("aria-current", idx === active ? "true" : "false"));
+    };
+
+    const scrollToIndex = (i) => {
+      active = wrap(i);
+      track.scrollTo({ left: slides[active].offsetLeft, behavior: "smooth" });
+      updateDots();
+    };
+
+    // dots
+    if (dotsWrap) {
+      dotsWrap.innerHTML = "";
+      slides.forEach((_, idx) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "dot";
+        b.setAttribute("aria-label", `Ir para o slide ${idx + 1}`);
+        b.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          scrollToIndex(idx);
+        });
+        dotsWrap.appendChild(b);
+      });
+      updateDots();
+    }
+
+    // arrows
+    prev?.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      scrollToIndex(active - 1);
+    });
+
+    next?.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      scrollToIndex(active + 1);
+    });
+
+    // sync active on scroll
+    const calcActiveFromScroll = () => {
+      const center = track.scrollLeft + track.clientWidth / 2;
+      let best = 0;
+      let bestDist = Infinity;
+
+      slides.forEach((s, idx) => {
+        const c = s.offsetLeft + s.clientWidth / 2;
+        const dist = Math.abs(center - c);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = idx;
+        }
+      });
+
+      active = best;
+      updateDots();
+    };
+
+    track.addEventListener("scroll", () => {
+      window.clearTimeout(track.__t);
+      track.__t = window.setTimeout(calcActiveFromScroll, 60);
+    });
+
+    updateDots();
+  });
+</script>
+
+<style>
+  .spk { padding: 64px 0; }
+  .spk-head { margin-bottom: 18px; }
+  .spk-title {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 40px;
+    letter-spacing: .2px;
+  }
+  .spk-title span { color: var(--gold); }
+  .spk-sub { margin: 10px 0 0; color: var(--muted); }
+
+  .spk-shell{
+    display: grid;
+    grid-template-columns: 52px 1fr 52px;
+    gap: 14px;
+    align-items: center;
+    margin-top: 18px;
+  }
+
+  .nav{
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.02);
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  .viewport{ overflow: hidden; }
+  .track{
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 10px 2px;
+  }
+  .track::-webkit-scrollbar{ display:none; }
+
+  .slide{
+    scroll-snap-align: center;
+    min-width: 320px;
+    width: 320px;
+  }
+
+  @media (max-width: 900px){
+    .spk-shell{ grid-template-columns: 44px 1fr 44px; }
+    .nav{ width:44px; height:44px; }
+    .slide{ min-width: 290px; width:290px; }
+  }
+</style>

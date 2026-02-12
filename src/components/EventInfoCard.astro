@@ -1,0 +1,96 @@
+---
+type Props = {
+  ctaHref?: string;
+};
+const { ctaHref = "https://octaadm.com.br/public/eventoapp?evento=Entrenos" } = Astro.props;
+---
+
+<section class="event-card">
+  <div class="container">
+    <div class="event-card__grid">
+      <div class="event-card__left">
+        <p class="event-kicker">Um evento presencial para mulheres</p>
+        <h2 class="event-title">
+          <span>Entre Nós</span> — Os 4 Pilares
+        </h2>
+        <p class="event-text">
+          Um encontro que transcende técnicas e estratégias — com presença, estratégia e alinhamento.
+        </p>
+
+        <a class="event-cta" href={ctaHref}>QUERO MINHA VAGA</a>
+        <p class="event-note">Você será direcionada para a inscrição oficial.</p>
+      </div>
+
+      <div class="event-card__right">
+        <div class="event-mini">
+          <div class="mini">
+            <div class="mini-h">Quando</div>
+            <div class="mini-p">Data: <strong>21/03</strong></div>
+          </div>
+          <div class="mini">
+            <div class="mini-h">Horário</div>
+            <div class="mini-p">Horário: <strong>13:00 ás 18:00</strong></div>
+          </div>
+          <div class="mini">
+            <div class="mini-h">Local</div>
+            <div class="mini-p">Local: <strong>Espaço Fiori</strong></div>
+          </div>
+          <div class="mini">
+            <div class="mini-h">Investimento</div>
+            <div class="mini-p">Investimento: <strong>R$197,00</strong></div>
+          </div>
+        </div>
+
+        <div class="chips">
+          <span class="chip">Imagem</span>
+          <span class="chip">Neurociência</span>
+          <span class="chip">Finanças</span>
+          <span class="chip">Espiritualidade</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .event-card{ padding: 56px 0; }
+  .event-card__grid{
+    border:1px solid var(--border);
+    border-radius:18px;
+    background: rgba(0,0,0,.08);
+    display:grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 18px;
+    padding: 22px;
+  }
+  .event-kicker{ margin:0 0 10px; color: var(--muted); font-weight:700; }
+  .event-title{ margin:0 0 10px; font-family: var(--font-serif); font-size: 34px; line-height:1.05; }
+  .event-title span{ color: var(--gold); }
+  .event-text{ margin:0 0 16px; color: var(--muted); line-height:1.7; max-width: 60ch; }
+  .event-cta{
+    display:inline-block; background: var(--gold); color:#2b120d;
+    padding: 14px 18px; font-weight: 900; letter-spacing:.6px;
+    text-transform: uppercase; text-decoration:none;
+  }
+  .event-note{ margin:10px 0 0; color: rgba(218,193,177,.6); }
+  .event-card__right{ border-left:1px dashed rgba(218,193,177,.22); padding-left: 18px; }
+  .event-mini{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .mini{ border:1px solid var(--border); border-radius: 14px; padding: 12px; background: rgba(0,0,0,.06); }
+  .mini-h{ color: rgba(218,193,177,.7); font-weight:800; text-transform: uppercase; letter-spacing:.6px; font-size: 12px; margin-bottom:6px; }
+  .mini-p{ color: var(--muted); line-height:1.5; }
+  .chips{ display:flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .chip{
+    border:1px solid rgba(218,193,177,.22);
+    border-radius: 999px;
+    padding: 8px 12px;
+    color: var(--muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing:.5px;
+  }
+  @media (max-width: 900px){
+    .event-card__grid{ grid-template-columns: 1fr; }
+    .event-card__right{ border-left: 0; border-top:1px dashed rgba(218,193,177,.22); padding-left:0; padding-top: 16px; }
+  }
+</style>
