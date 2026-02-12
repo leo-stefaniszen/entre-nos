@@ -3,8 +3,8 @@ import MainLayout from "../layouts/MainLayout.astro";
 import heroImage from "../assets/images/hero/hero.jpeg";
 ---
 
-<MainLayout title="Entre Nós — Início">
-  <section class="panel panel-ruby hero-panel">
+<MainLayout title="Entre Nós — Os 4 Pilares do Empreendedorismo">
+  <section id="inicio" class="panel panel-ruby">
     <div class="container hero-grid">
       <div>
         <p class="eyebrow">Headline - Dobra 1</p>
@@ -28,7 +28,7 @@ import heroImage from "../assets/images/hero/hero.jpeg";
           aquilo que você já carrega por dentro, mas ainda não mostrou ao mundo. Uma imersão
           guiada por autoridades que não apenas ensinam: inspiram.
         </p>
-        <a href="/evento" class="cta">QUERO MINHA VAGA NO MOVIMENTO</a>
+        <a href="#evento" class="cta">QUERO MINHA VAGA NO MOVIMENTO</a>
       </div>
 
       <img
@@ -36,6 +36,131 @@ import heroImage from "../assets/images/hero/hero.jpeg";
         src={heroImage.src}
         alt="Mulheres fortes, elegantes e competentes representando o movimento Entre Nós"
       />
+    </div>
+  </section>
+
+  <section id="manifesto" class="panel panel-beige">
+    <div class="container">
+      <p class="eyebrow">O Manifesto</p>
+      <h2>Você é mais do que o seu cargo.</h2>
+      <p>
+        Muitas vezes nos dizem que empreender é sobre abrir uma empresa, emitir notas e gerir
+        funcionários. Na verdade, isso é apenas a concretização jurídica de algo que já existe
+        dentro de você.
+      </p>
+      <p>
+        O espírito empreendedor está na professora que inova na sala de aula. Na cientista que
+        busca a cura. Na executiva que lidera com estratégia. Gerente que lidera com coragem. O
+        empreendedorismo é uma postura de quem não aceita ser coadjuvante da própria história.
+      </p>
+      <p>
+        O Entre Nós nasceu para reunir essas mulheres. Aquelas que entenderam que, para o mundo
+        lá fora funcionar, as engrenagens aqui dentro precisam estar ajustadas.
+      </p>
+    </div>
+  </section>
+
+  <section id="pilares" class="panel panel-dark">
+    <div class="container">
+      <p class="eyebrow">Os 4 Pilares</p>
+      <h2>A estrutura que sustenta a sua evolução.</h2>
+      <p>
+        Para que sua trajetória seja sólida, não basta apenas "trabalhar muito". É preciso
+        alinhar as quatro dimensões que definem sua presença no mundo:
+      </p>
+
+      <div class="cards-grid">
+        <article class="card">
+          <h3>1. Imagem Pessoal</h3>
+          <p>
+            Sua primeira mensagem. Transforme sua imagem em um ativo estratégico que comunica
+            autoridade, intenção e respeito antes mesmo de você dizer a primeira palavra.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>2. Neurociência</h3>
+          <p>
+            O domínio da sua mente. Entenda os processos biológicos por trás da sua tomada de
+            decisão, foco e inteligência emocional para performar sem esgotamento.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>3. Finanças</h3>
+          <p>
+            A base da sua liberdade. O dinheiro não é o fim, mas o meio que permite que você faça
+            escolhas com autonomia e segurança.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>4. Espiritualidade</h3>
+          <p>
+            O seu alicerce invisível. O alinhamento com seu propósito e valores que traz clareza e
+            paz para sustentar os desafios da jornada.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="palestrantes" class="panel panel-ruby">
+    <div class="container">
+      <p class="eyebrow">As Palestrantes / Autoridades</p>
+      <p class="notice">ESTE APENAS DEPOIS DE REVELADA AS PALESTRANTES.</p>
+      <h2>Quatro mentes, um único propósito.</h2>
+      <p>Conheça as especialistas que guiarão você através dessa jornada de alinhamento:</p>
+      <ul class="list-strong">
+        <li>
+          <strong>Silmara [Sobrenome]:</strong> (Breve descrição da Silmara focando na visão de
+          liderança e no projeto "Entre Nós").
+        </li>
+        <li><strong>[Nome Palestrante 2]:</strong> Especialista em Imagem Pessoal.</li>
+        <li><strong>[Nome Palestrante 3]:</strong> Especialista em Neurociência/Saúde Mental.</li>
+        <li><strong>[Nome Palestrante 4]:</strong> Especialista em Finanças.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="evento" class="panel panel-beige">
+    <div class="container">
+      <p class="eyebrow">Para quem é o evento</p>
+      <h2>Este lugar é seu se você:</h2>
+      <ul>
+        <li>É uma mulher que busca protagonismo em sua área de atuação.</li>
+        <li>Sente que está negligenciando algum pilar da vida para ter sucesso profissional.</li>
+        <li>Deseja fazer networking com outras mulheres que compartilham da mesma visão de mundo.</li>
+        <li>Entende que o autoconhecimento é o melhor investimento para sua carreira.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="panel panel-dark">
+    <div class="container">
+      <p class="eyebrow">Rodapé / CTA Final</p>
+      <h2>Chegou a hora de olhar para o que realmente sustenta o seu sucesso.</h2>
+      <p>
+        Data: <strong>[Inserir Data]</strong> · Local: <strong>[Inserir Local/Plataforma]</strong> ·
+        Investimento: <strong>[Inserir Valor]</strong>
+      </p>
+      <a href="#inicio" class="cta">QUERO FAZER PARTE DO ENTRE NÓS</a>
+    </div>
+  </section>
+
+  <section class="panel panel-ruby">
+    <div class="container">
+      <p class="eyebrow">Dicas para o Design</p>
+      <ul>
+        <li>Espaço em branco: Use uma página limpa, com fontes e cores do evento.</li>
+        <li>
+          Fotos de impacto: Use fotos que transmitam essa ideia de "mulheres reais, mas
+          extremamente competentes".
+        </li>
+        <li>
+          Conexão: Use fotos de mãos dadas ou olhares diretos para reforçar o nome "Entre Nós".
+        </li>
+      </ul>
     </div>
   </section>
 </MainLayout>
