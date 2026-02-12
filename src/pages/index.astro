@@ -1,100 +1,41 @@
 ---
-import "../styles/global.css";
-
-import logo from "../assets/images/logo/logo.png";
-import heroImage from "../assets/images/hero/hero.png";
-
-import Ticket3D from "../components/Ticket3D.astro";
-import Expectativas3 from "../components/Expectativas3.astro";
-import Pilares from "../components/Pilares.astro";
-import CarouselPalestrantes from "../components/CarouselPalestrantes.astro";
-import Footer from "../components/Footer.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import heroImage from "../assets/images/hero/hero.jpeg";
 ---
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <title>Entre Nós — Os 4 Pilares do Empreendedorismo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-
-  <body>
-    <!-- NAVBAR -->
-    <nav class="navbar">
-      <div class="nav-inner">
-        <a class="brand" href="#topo" aria-label="Ir para o topo">
-          <img src={logo.src} alt="Entre Nós" />
-        </a>
-
-        <div class="nav-links" aria-label="Navegação">
-          <a href="#evento">Evento</a>
-          <a href="#experiencia">Experiência</a>
-          <a href="#pilares">Pilares</a>
-          <a href="#palestrantes">Palestrantes</a>
-
-          <!-- ✅ CTA ahora manda al BOLETO -->
-          <a class="cta" href="#ingresso">Quero minha vaga</a>
-        </div>
+<MainLayout title="Entre Nós — Início">
+  <section class="panel panel-ruby hero-panel">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Headline - Dobra 1</p>
+        <h1>Entrepreneur</h1>
+        <p class="sub-headline">
+          Palavra de origem francesa que atravessa séculos e que, antes de nomear
+          negócios, nomeia espíritos.
+        </p>
+        <p>
+          Há pessoas que apenas vivem o mundo… e há aquelas que o remodelam silenciosamente,
+          com intenção, sensibilidade e coragem. Essas são as empreendedoras entre nós,
+          mulheres que transformam ambientes, relações, caminhos.
+        </p>
+        <p><strong class="gold">Mulheres como você!</strong></p>
+        <p>
+          É por isso que nasce o Entre Nós: Os 4 Pilares do Empreendedorismo. Um encontro que
+          transcende técnicas e estratégias.
+        </p>
+        <p>
+          Aqui, o espiritual, o emocional, o financeiro e a imagem se entrelaçam para revelar
+          aquilo que você já carrega por dentro, mas ainda não mostrou ao mundo. Uma imersão
+          guiada por autoridades que não apenas ensinam: inspiram.
+        </p>
+        <a href="/evento" class="cta">QUERO MINHA VAGA NO MOVIMENTO</a>
       </div>
-    </nav>
 
-    <!-- HERO -->
-    <section id="topo" class="hero">
-      <div class="container hero-pro">
-        <div class="hero-copy">
-          <h1 class="hero-title">
-            FINAL DE SEMANA<br />
-            DE ACELERAÇÃO<br />
-            PARA EMPRESÁRIAS<br />
-            <span>QUEEN</span>
-          </h1>
-
-          <p class="hero-text">
-            Um final de semana presencial para acelerar seus resultados no universo
-            digital, elevar sua percepção de valor e destravar sua produção de
-            conteúdo com estratégia e posicionamento.
-          </p>
-
-          <!-- ✅ CTA ahora manda al BOLETO -->
-          <a href="#ingresso" class="hero-cta">Quero minha vaga</a>
-        </div>
-
-        <div class="hero-image">
-          <img src={heroImage.src} alt="Entre Nós — Queen Experience" />
-        </div>
-      </div>
-    </section>
-
-    <!-- SEÇÕES -->
-    <section id="evento">
-      <!-- Si vos tenías EventInfoCard acá antes, ponelo acá -->
-      <!-- <EventInfoCard /> -->
-    </section>
-
-    <section id="ingresso">
-      <Ticket3D />
-    </section>
-
-    <section id="experiencia">
-      <Expectativas3 />
-    </section>
-
-    <section id="pilares">
-      <Pilares />
-    </section>
-
-    <section id="palestrantes">
-      <CarouselPalestrantes />
-    </section>
-
-    <!-- ✅ Footer real -->
-    <Footer logoSrc={logo.src} />
-  </body>
-</html>
+      <img
+        class="hero-image"
+        src={heroImage.src}
+        alt="Mulheres fortes, elegantes e competentes representando o movimento Entre Nós"
+      />
+    </div>
+  </section>
+</MainLayout>
