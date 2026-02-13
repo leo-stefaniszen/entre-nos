@@ -137,25 +137,26 @@ body { position: relative; }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 0.72fr 1.28fr;
-  gap: 10px;
+  grid-template-columns: 0.78fr 1.22fr;
+  gap: 8px;
   align-items: center;
 }
 
 .hero-copy {
-  max-width: 470px;
+  max-width: 560px;
 }
 
 .hero-copy p {
-  max-width: 48ch;
-  font-size: 0.95rem;
+  max-width: 50ch;
+  font-size: 1.06rem;
 }
 
 h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; margin: 0 0 14px; }
 
 .hero-title {
-  font-size: clamp(1.35rem, 2.8vw, 2.15rem);
+  font-size: clamp(2.2rem, 4.3vw, 3.5rem);
   text-shadow: 0 0 16px color-mix(in srgb, var(--c-gold-2) 20%, transparent);
+  line-height: 1.02;
 }
 
 h2 { font-size: clamp(1.55rem, 3.5vw, 2.7rem); }
@@ -171,7 +172,7 @@ p, li { font-size: 1.02rem; margin-top: 0; }
   color: var(--c-gold-2);
 }
 
-.sub-headline { max-width: 44ch; font-size: 0.92rem; }
+.sub-headline { max-width: 48ch; font-size: 1.16rem; }
 
 .gold {
   background: linear-gradient(135deg, var(--c-gold-1) 0%, var(--c-gold-2) 42%, var(--c-gold-3) 78%, var(--c-gold-2) 100%);
@@ -185,25 +186,25 @@ p, li { font-size: 1.02rem; margin-top: 0; }
 .hero-image-wrap {
   position: relative;
   display: grid;
-  place-items: end center;
-  min-height: 760px;
+  place-items: center;
+  min-height: 780px;
 }
 
 .hero-image-wrap::before {
   content: "";
   position: absolute;
-  inset: 18% 12% 8%;
+  inset: 16% 10% 10%;
   background: radial-gradient(circle, color-mix(in srgb, var(--c-gold-2) 35%, transparent), transparent 72%);
   filter: blur(20px);
 }
 
 .hero-image {
   position: relative;
-  width: min(100%, 860px);
-  max-height: 920px;
+  width: min(100%, 900px);
+  max-height: 960px;
   object-fit: contain;
-  transform: scale(1.14);
-  transform-origin: bottom center;
+  transform: scale(1.12) translateX(-1%);
+  transform-origin: center;
   filter: drop-shadow(0 30px 45px rgba(0, 0, 0, 0.42));
 }
 
@@ -343,14 +344,14 @@ ul, ol { padding-left: 22px; }
   .carousel-btn { display: none; }
 
   .hero-image-wrap {
-    min-height: 470px;
+    min-height: 500px;
     place-items: center;
   }
 
   .hero-image {
-    width: min(100%, 620px);
-    max-height: 620px;
-    transform: scale(1.06);
+    width: min(100%, 660px);
+    max-height: 660px;
+    transform: scale(1.04);
   }
 
   .speaker-card img { height: 320px; }
