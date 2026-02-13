@@ -1,12 +1,43 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import heroImage from "../assets/images/hero/hero.png";
+
+const speakers = [
+  {
+    name: "Silmara [Sobrenome]",
+    role: "Liderança e visão do projeto Entre Nós",
+    description:
+      "Breve descrição da Silmara focando na visão de liderança e no projeto Entre Nós.",
+    image: "/palestrantes/silmara_card.png",
+  },
+  {
+    name: "Kamila dos Santos",
+    role: "Especialista em Imagem Pessoal",
+    description:
+      "Especialista em Imagem Pessoal, posicionamento e autoridade visual para mulheres protagonistas.",
+    image: "/palestrantes/icognito_1_card.png",
+  },
+  {
+    name: "Dra. Helena Costa",
+    role: "Especialista em Neurociência/Saúde Mental",
+    description:
+      "Especialista em Neurociência/Saúde Mental, foco, tomada de decisão e inteligência emocional com alta performance.",
+    image: "/palestrantes/icognito_2_card.png",
+  },
+  {
+    name: "Marina Valença",
+    role: "Especialista em Finanças",
+    description:
+      "Especialista em Finanças para liberdade, segurança e crescimento sustentável na jornada empreendedora.",
+    image: "/palestrantes/icognito_3_card.png",
+  },
+];
 ---
 
 <MainLayout title="Entre Nós — Os 4 Pilares do Empreendedorismo">
   <section id="inicio" class="panel panel-ruby hero-panel">
     <div class="container hero-grid">
-      <div>
+      <div class="hero-copy">
         <h1 class="hero-title"><span class="gold">Entre</span>preneur</h1>
         <p class="sub-headline">
           Palavra de origem francesa que atravessa séculos e que, antes de nomear
@@ -111,28 +142,20 @@ import heroImage from "../assets/images/hero/hero.png";
 
       <div class="speaker-carousel" data-carousel>
         <button class="carousel-btn" data-prev aria-label="Anterior">‹</button>
-        <div class="carousel-viewport" data-viewport>
+        <div class="carousel-viewport">
           <div class="carousel-track" data-track>
-            <article class="speaker-card">
-              <img src="/palestrantes/silmara_card.png" alt="Silmara" />
-              <h3>Silmara [Sobrenome]</h3>
-              <p>(Breve descrição da Silmara focando na visão de liderança e no projeto "Entre Nós").</p>
-            </article>
-            <article class="speaker-card">
-              <img src="/palestrantes/icognito_1_card.png" alt="Palestrante 2" />
-              <h3>[Nome Palestrante 2]</h3>
-              <p>Especialista em <span class="gold">Imagem Pessoal</span>.</p>
-            </article>
-            <article class="speaker-card">
-              <img src="/palestrantes/icognito_2_card.png" alt="Palestrante 3" />
-              <h3>[Nome Palestrante 3]</h3>
-              <p>Especialista em <span class="gold">Neurociência/Saúde Mental</span>.</p>
-            </article>
-            <article class="speaker-card">
-              <img src="/palestrantes/icognito_3_card.png" alt="Palestrante 4" />
-              <h3>[Nome Palestrante 4]</h3>
-              <p>Especialista em <span class="gold">Finanças</span>.</p>
-            </article>
+            {speakers.map((speaker) => (
+              <article class="speaker-card">
+                <div class="speaker-media">
+                  <img src={speaker.image} alt={speaker.name} />
+                </div>
+                <div class="speaker-content">
+                  <h3>{speaker.name}</h3>
+                  <p class="speaker-role">{speaker.role}</p>
+                  <p>{speaker.description}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
         <button class="carousel-btn" data-next aria-label="Próximo">›</button>
@@ -180,10 +203,7 @@ import heroImage from "../assets/images/hero/hero.png";
 
       const goTo = (index) => {
         current = (index + cards.length) % cards.length;
-        track.scrollTo({
-          left: cards[current].offsetLeft,
-          behavior: 'smooth',
-        });
+        track.scrollTo({ left: cards[current].offsetLeft, behavior: 'smooth' });
       };
 
       prev?.addEventListener('click', () => goTo(current - 1));
