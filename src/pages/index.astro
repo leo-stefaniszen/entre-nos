@@ -7,8 +7,7 @@ import heroImage from "../assets/images/hero/hero.png";
   <section id="inicio" class="panel panel-ruby hero-panel">
     <div class="container hero-grid">
       <div>
-        <p class="eyebrow">Headline - Dobra 1</p>
-        <h1><span class="gold">Entre</span>preneur</h1>
+        <h1 class="hero-title"><span class="gold">Entre</span>preneur</h1>
         <p class="sub-headline">
           Palavra de origem francesa que atravessa séculos e que, antes de nomear
           <span class="gold">negócios</span>, nomeia espíritos.
@@ -20,8 +19,8 @@ import heroImage from "../assets/images/hero/hero.png";
         </p>
         <p><strong class="gold">Mulheres como você!</strong></p>
         <p>
-          É por isso que nasce o Entre Nós: <span class="gold">Os 4 Pilares do Empreendedorismo</span>. Um encontro que
-          transcende técnicas e estratégias.
+          É por isso que nasce o Entre Nós: <span class="gold">Os 4 Pilares do Empreendedorismo</span>.
+          Um encontro que transcende técnicas e estratégias.
         </p>
         <p>
           Aqui, o espiritual, o emocional, o financeiro e a imagem se entrelaçam para revelar
@@ -32,11 +31,7 @@ import heroImage from "../assets/images/hero/hero.png";
       </div>
 
       <div class="hero-image-wrap">
-        <img
-          class="hero-image"
-          src={heroImage.src}
-          alt="Mulher representando o movimento Entre Nós"
-        />
+        <img class="hero-image" src={heroImage.src} alt="Mulher representando o movimento Entre Nós" />
       </div>
     </div>
   </section>
@@ -113,15 +108,35 @@ import heroImage from "../assets/images/hero/hero.png";
       <p class="notice">ESTE APENAS DEPOIS DE REVELADA AS PALESTRANTES.</p>
       <h2>Quatro mentes, um único <span class="gold">propósito</span>.</h2>
       <p>Conheça as especialistas que guiarão você através dessa jornada de alinhamento:</p>
-      <ul class="list-strong">
-        <li>
-          <strong>Silmara [Sobrenome]:</strong> (Breve descrição da Silmara focando na visão de
-          liderança e no projeto "Entre Nós").
-        </li>
-        <li><strong>[Nome Palestrante 2]:</strong> Especialista em Imagem Pessoal.</li>
-        <li><strong>[Nome Palestrante 3]:</strong> Especialista em Neurociência/Saúde Mental.</li>
-        <li><strong>[Nome Palestrante 4]:</strong> Especialista em Finanças.</li>
-      </ul>
+
+      <div class="speaker-carousel" data-carousel>
+        <button class="carousel-btn" data-prev aria-label="Anterior">‹</button>
+        <div class="carousel-viewport" data-viewport>
+          <div class="carousel-track" data-track>
+            <article class="speaker-card">
+              <img src="/palestrantes/silmara_card.png" alt="Silmara" />
+              <h3>Silmara [Sobrenome]</h3>
+              <p>(Breve descrição da Silmara focando na visão de liderança e no projeto "Entre Nós").</p>
+            </article>
+            <article class="speaker-card">
+              <img src="/palestrantes/icognito_1_card.png" alt="Palestrante 2" />
+              <h3>[Nome Palestrante 2]</h3>
+              <p>Especialista em <span class="gold">Imagem Pessoal</span>.</p>
+            </article>
+            <article class="speaker-card">
+              <img src="/palestrantes/icognito_2_card.png" alt="Palestrante 3" />
+              <h3>[Nome Palestrante 3]</h3>
+              <p>Especialista em <span class="gold">Neurociência/Saúde Mental</span>.</p>
+            </article>
+            <article class="speaker-card">
+              <img src="/palestrantes/icognito_3_card.png" alt="Palestrante 4" />
+              <h3>[Nome Palestrante 4]</h3>
+              <p>Especialista em <span class="gold">Finanças</span>.</p>
+            </article>
+          </div>
+        </div>
+        <button class="carousel-btn" data-next aria-label="Próximo">›</button>
+      </div>
     </div>
   </section>
 
@@ -135,13 +150,9 @@ import heroImage from "../assets/images/hero/hero.png";
         <li>Deseja fazer networking com outras mulheres que compartilham da mesma visão de mundo.</li>
         <li>Entende que o autoconhecimento é o melhor investimento para sua carreira.</li>
       </ul>
-    </div>
-  </section>
-
-  <section class="panel panel-dark">
-    <div class="container">
-      <p class="eyebrow">Rodapé / CTA Final</p>
-      <h2>Chegou a hora de olhar para o que realmente sustenta o seu <span class="gold">sucesso</span>.</h2>
+      <h3 class="event-cta-title">
+        Chegou a hora de olhar para o que realmente sustenta o seu <span class="gold">sucesso</span>.
+      </h3>
       <p>
         Data: <strong>[Inserir Data]</strong> · Local: <strong>[Inserir Local/Plataforma]</strong> ·
         Investimento: <strong>[Inserir Valor]</strong>
@@ -150,19 +161,33 @@ import heroImage from "../assets/images/hero/hero.png";
     </div>
   </section>
 
-  <section class="panel panel-ruby">
-    <div class="container">
-      <p class="eyebrow">Dicas para o Design</p>
-      <ul>
-        <li>Espaço em branco: Use uma página limpa, com fontes e cores do evento.</li>
-        <li>
-          Fotos de impacto: Use fotos que transmitam essa ideia de "mulheres reais, mas
-          extremamente competentes".
-        </li>
-        <li>
-          Conexão: Use fotos de mãos dadas ou olhares diretos para reforçar o nome "Entre Nós".
-        </li>
-      </ul>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong class="gold">Entre Nós</strong> — Os 4 Pilares do Empreendedorismo.</p>
+      <p>Conexão, propósito, estratégia e liberdade para mulheres protagonistas.</p>
+      <a href="#inicio" class="footer-link">Voltar ao topo ↑</a>
     </div>
-  </section>
+  </footer>
+
+  <script is:inline>
+    const carousel = document.querySelector('[data-carousel]');
+    if (carousel) {
+      const track = carousel.querySelector('[data-track]');
+      const prev = carousel.querySelector('[data-prev]');
+      const next = carousel.querySelector('[data-next]');
+      const cards = carousel.querySelectorAll('.speaker-card');
+      let current = 0;
+
+      const goTo = (index) => {
+        current = (index + cards.length) % cards.length;
+        track.scrollTo({
+          left: cards[current].offsetLeft,
+          behavior: 'smooth',
+        });
+      };
+
+      prev?.addEventListener('click', () => goTo(current - 1));
+      next?.addEventListener('click', () => goTo(current + 1));
+    }
+  </script>
 </MainLayout>
