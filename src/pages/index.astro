@@ -179,7 +179,7 @@ const siteUrl = "https://www.entrenos-evento.com.br";
             {speakers.length > 0 ? (
               speakers.map((speaker, index) => (
                 <article class="speaker-card" data-slide data-index={index} aria-roledescription="slide" aria-label={`Palestrante ${index + 1} de ${speakers.length}`}>
-                  <div class="speaker-media"><img src={speaker.image} alt={speaker.name} loading="lazy" /></div>
+                  <div class="speaker-media"><img src={speaker.image} alt={speaker.name} loading="lazy" onerror="this.onerror=null;this.src='/palestrantes/silmara_card.png';" /></div>
                   <div class="speaker-content">
                     <h3>{speaker.name}</h3>
                     <p class="text-secondary-light">{speaker.role}</p>
