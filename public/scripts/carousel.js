@@ -20,7 +20,7 @@ const initCarousel = (carousel) => {
 
   const goTo = (index) => {
     current = (index + slides.length) % slides.length;
-    trackViewport.scrollTo({ left: slides[current].offsetLeft, behavior: 'smooth' });
+    track.scrollTo({ left: slides[current].offsetLeft, behavior: 'smooth' });
     updateDots();
   };
 
