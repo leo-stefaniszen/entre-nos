@@ -104,18 +104,39 @@ const siteUrl = "https://www.entrenos-evento.com.br";
 
   <section id="pilares" class="panel panel-dark">
     <div class="container">
-      <p class="eyebrow">Os 4 Pilares</p>
-      <h2>A estrutura que sustenta a sua evolução.</h2>
-      <p class="text-secondary">
-        Para que sua trajetória seja sólida, não basta apenas "trabalhar muito". É preciso alinhar
-        as quatro dimensões que definem sua presença no mundo:
-      </p>
-      <ol class="pillar-list text-secondary">
-        <li><strong>Imagem Pessoal: Sua primeira mensagem.</strong> Transforme sua imagem em um ativo estratégico que comunica autoridade, intenção e respeito antes mesmo de você dizer a primeira palavra.</li>
-        <li><strong>Neurociência: O domínio da sua mente.</strong> Entenda os processos biológicos por trás da sua tomada de decisão, foco e inteligência emocional para performar sem esgotamento.</li>
-        <li><strong>Finanças: A base da sua liberdade.</strong> O dinheiro não é o fim, mas o meio que permite que você faça escolhas com autonomia e segurança.</li>
-        <li><strong>Espiritualidade: O seu alicerce invisível.</strong> O alinhamento com seu propósito e valores que traz clareza e paz para sustentar os desafios da jornada.</li>
-      </ol>
+      <div class="pillars-head">
+        <p class="eyebrow">Os 4 Pilares</p>
+        <h2>A estrutura que sustenta a sua evolução.</h2>
+        <p class="text-secondary">
+          Para crescer com consistência, você precisa equilibrar as quatro dimensões que sustentam sua presença no mundo.
+        </p>
+      </div>
+
+      <div class="pillars-grid" role="list" aria-label="Quatro pilares do empreendedorismo">
+        <article class="pillar-card" role="listitem">
+          <span class="pillar-icon" aria-hidden="true">✦</span>
+          <h3>Imagem Pessoal</h3>
+          <p class="text-secondary">Sua primeira mensagem. Construa uma presença que comunica autoridade, intenção e confiança.</p>
+        </article>
+
+        <article class="pillar-card" role="listitem">
+          <span class="pillar-icon" aria-hidden="true">🧠</span>
+          <h3>Neurociência</h3>
+          <p class="text-secondary">Domine foco e tomada de decisão para performar com equilíbrio emocional e clareza.</p>
+        </article>
+
+        <article class="pillar-card" role="listitem">
+          <span class="pillar-icon" aria-hidden="true">💰</span>
+          <h3>Finanças</h3>
+          <p class="text-secondary">Transforme dinheiro em estratégia para ter liberdade, previsibilidade e segurança.</p>
+        </article>
+
+        <article class="pillar-card" role="listitem">
+          <span class="pillar-icon" aria-hidden="true">✨</span>
+          <h3>Espiritualidade</h3>
+          <p class="text-secondary">Fortaleça seu alicerce invisível com propósito e valores para sustentar sua jornada.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -199,13 +220,32 @@ const siteUrl = "https://www.entrenos-evento.com.br";
     </div>
   </section>
 
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="container footer-inner">
-      <p><strong class="gold">Entre Nós</strong> — Os 4 Pilares do Empreendedorismo.</p>
-      <p class="text-secondary">Conexão, propósito, estratégia e liberdade para mulheres protagonistas.</p>
-      <div class="footer-actions">
-        <a href="https://www.instagram.com/silmara_stylist/" class="ig-btn" target="_blank" rel="noopener noreferrer">Instagram @silmara_stylist</a>
+      <div class="footer-brand">
+        <p class="footer-title"><strong class="gold">Entre Nós</strong></p>
+        <p class="text-secondary">Os 4 Pilares do Empreendedorismo para mulheres protagonistas.</p>
+      </div>
+
+      <div class="footer-links-group">
+        <p class="footer-heading">Navegação</p>
+        <a href="#inicio" class="footer-link">Início</a>
+        <a href="#manifesto" class="footer-link">Manifesto</a>
+        <a href="#pilares" class="footer-link">4 Pilares</a>
+        <a href="#palestrantes" class="footer-link">Palestrantes</a>
+      </div>
+
+      <div class="footer-links-group">
+        <p class="footer-heading">Contato</p>
+        <a href="https://www.instagram.com/silmara_stylist/" class="footer-link" target="_blank" rel="noopener noreferrer">Instagram @silmara_stylist</a>
+        <a href="https://octaadm.com.br/public/eventoapp?evento=Entrenos" class="footer-link" target="_blank" rel="noopener noreferrer">Comprar ingresso</a>
         <a href="#inicio" class="footer-link">Voltar ao topo ↑</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© {new Date().getFullYear()} Entre Nós. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>

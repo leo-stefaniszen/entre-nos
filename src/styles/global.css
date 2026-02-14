@@ -85,8 +85,28 @@ p, li { font-size: 1rem; line-height: 1.6; }
 
 .ribbon { background: linear-gradient(90deg, #d9b67c, #edd8a0, #d9b67c); color: #4b150c; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; font-size: .82rem; padding: 9px 16px; text-align: center; }
 
-.pillar-list { margin-top: 16px; padding-left: 20px; }
-.pillar-list li + li { margin-top: 14px; }
+.pillars-head { max-width: 760px; margin-bottom: 26px; }
+.pillars-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.pillar-card {
+  border: 1px solid color-mix(in srgb, var(--c-gold-2) 45%, transparent);
+  border-radius: 18px;
+  padding: 22px;
+  background: linear-gradient(150deg, color-mix(in srgb, #7f1f0e 86%, #2c0805), #4a1008);
+  box-shadow: 0 12px 30px rgba(0,0,0,.22);
+}
+.pillar-card h3 { margin-bottom: 8px; color: var(--c-gold-3); }
+.pillar-card p { margin: 0; }
+.pillar-icon {
+  width: 42px;
+  height: 42px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  font-size: 1.15rem;
+  background: color-mix(in srgb, var(--c-gold-2) 22%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c-gold-2) 56%, transparent);
+}
 
 .speaker-carousel { margin-top: 18px; display: grid; grid-template-columns: 56px 1fr 56px; align-items: center; gap: 14px; }
 .carousel-btn { width: 56px; height: 56px; border-radius: 16px; cursor: pointer; border: 1px solid color-mix(in srgb, var(--c-gold-2) 80%, transparent); background: linear-gradient(160deg, #6a140a, #4e0e07); color: var(--c-gold-2); font-size: 1.9rem; box-shadow: 0 8px 20px rgba(0,0,0,.25); transition: transform .2s ease, filter .2s ease; }
@@ -111,15 +131,24 @@ li + li { margin-top: 8px; }
 
 .site-footer {
   background:
-    radial-gradient(circle at 20% 0%, color-mix(in srgb, var(--c-gold-2) 12%, transparent), transparent 35%),
-    linear-gradient(180deg, color-mix(in srgb,var(--c-ruby) 40%, transparent) 0%, #2d0804 22%);
-  border-top: 1px solid color-mix(in srgb, var(--c-gold-2) 50%, transparent);
+    radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--c-gold-2) 12%, transparent), transparent 30%),
+    linear-gradient(180deg, #2f0905 0%, #1f0604 100%);
+  border-top: 1px solid color-mix(in srgb, var(--c-gold-2) 45%, transparent);
 }
-.footer-inner { padding: 34px 0 38px; display: grid; gap: 10px; }
-.footer-actions { display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
-.ig-btn { display:inline-block; text-decoration:none; padding:10px 14px; border-radius:999px; background:linear-gradient(135deg,var(--c-gold-1),var(--c-gold-2) 42%,var(--c-gold-3)); color:#31130c; font-weight:700; font-size:.9rem; }
-.footer-link { width: fit-content; color: var(--c-gold-2); text-decoration: none; border-bottom: 1px solid transparent; }
-.footer-link:hover { border-color: var(--c-gold-2); }
+.footer-inner {
+  padding: 44px 0 36px;
+  display: grid;
+  grid-template-columns: 1.2fr .9fr .9fr;
+  gap: 28px;
+}
+.footer-title { margin: 0 0 8px; font-size: clamp(1.4rem, 2.2vw, 1.8rem); }
+.footer-heading { margin: 0 0 10px; color: var(--c-gold-2); text-transform: uppercase; letter-spacing: .08em; font-size: .82rem; font-weight: 800; }
+.footer-links-group { display: grid; align-content: start; gap: 8px; }
+.footer-link { width: fit-content; color: var(--c-text-secondary); text-decoration: none; border-bottom: 1px solid transparent; }
+.footer-link:hover { color: var(--c-gold-2); border-color: var(--c-gold-2); }
+.footer-bottom { border-top: 1px solid color-mix(in srgb, var(--c-gold-2) 24%, transparent); }
+.footer-bottom-inner { padding: 14px 0 18px; }
+.footer-bottom-inner p { margin: 0; color: color-mix(in srgb, var(--c-text-secondary) 80%, transparent); font-size: .9rem; }
 
 :focus-visible { outline: 3px solid var(--c-gold-3); outline-offset: 3px; border-radius: 8px; }
 
@@ -143,6 +172,8 @@ li + li { margin-top: 8px; }
   .hero-image-wrap { min-height: min(55svh, 500px); }
   .hero-image { width: min(108%, 800px); max-height: min(62svh, 820px); transform: translateX(6%); }
   .speaker-card img { height: 320px; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 18px; }
   .brand img { width: 140px; }
   .nav-inner { padding: 12px 0; }
   .nav-links { gap: 10px; justify-content: center; }
