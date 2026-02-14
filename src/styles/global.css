@@ -71,7 +71,8 @@ p, li { font-size: 1rem; line-height: 1.6; }
 .panel-second li { color: var(--c-text-secondary); }
 
 .text-secondary-dark { color: var(--c-text-secondary-dark); }
-.panel-speakers .text-secondary-dark { color: var(--c-text-secondary-dark); }
+.panel-speakers .text-secondary-dark { color: #fff; }
+.panel-speakers .notice { color: #fff; }
 .text-secondary-light { color: var(--c-text-on-card); }
 
 .hero-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 12px; }
