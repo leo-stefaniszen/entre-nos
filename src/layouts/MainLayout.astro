@@ -130,7 +130,18 @@ const structuredData = eventMeta
           <img src={logo.src} alt="Entre Nós" />
         </a>
 
-        <div class="nav-links">
+        <button
+          type="button"
+          class="nav-toggle"
+          data-nav-toggle
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Abrir menu principal"
+        >
+          ☰
+        </button>
+
+        <div class="nav-links" id="primary-navigation" data-nav-links>
           <a href="#inicio">Início</a>
           <a href="#manifesto">Manifesto</a>
           <a href="#pilares">4 Pilares</a>
@@ -145,6 +156,7 @@ const structuredData = eventMeta
     </main>
 
     <button class="next-section-btn" type="button" data-next-section aria-label="Ir para a próxima seção">↓</button>
+    <script src="/scripts/nav-menu.js" defer></script>
     <script src="/scripts/next-section.js" defer></script>
   </body>
 </html>
