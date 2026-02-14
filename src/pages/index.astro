@@ -5,8 +5,8 @@ import heroImage from "../assets/images/hero/hero.png";
 
 const speakers = [
   {
-    name: "Silmara [Sobrenome]",
-    role: "(Breve descrição da Silmara focando na visão de liderança e no projeto \"Entre Nós\").",
+    name: "Silmara",
+    role: "Idealizadora do Entre Nós e referência em imagem e posicionamento feminino.",
     image: "/palestrantes/silmara_card.png",
   },
   {
@@ -38,7 +38,6 @@ const siteUrl = "https://www.entrenos-evento.com.br";
   <section id="inicio" class="panel panel-hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Headline - Dobra 1</p>
         <h1 class="hero-title gold">Entrepreneur</h1>
         <p class="sub-headline text-secondary">
           Palavra de origem francesa que atravessa séculos e que, antes de nomear
@@ -77,46 +76,79 @@ const siteUrl = "https://www.entrenos-evento.com.br";
           height={1800}
         />
       </div>
+
+      <div class="ribbon ribbon-hero">ENTRE NÓS · OS 4 PILARES DO EMPREENDEDORISMO · ENTRE NÓS · OS 4 PILARES DO EMPREENDEDORISMO</div>
     </div>
   </section>
 
-  <div class="ribbon">ENTRE NÓS · OS 4 PILARES DO EMPREENDEDORISMO · ENTRE NÓS · OS 4 PILARES DO EMPREENDEDORISMO</div>
-
   <section id="manifesto" class="panel panel-second">
-    <div class="container">
-      <p class="eyebrow">O Manifesto</p>
-      <h2>Você é mais do que o seu cargo.</h2>
-      <p class="text-secondary">
-        Muitas vezes nos dizem que empreender é sobre abrir uma empresa, emitir notas e gerir
-        funcionários. Na verdade, isso é apenas a concretização jurídica de algo que já existe
-        dentro de você.
-      </p>
-      <p class="text-secondary">
-        O espírito empreendedor está na professora que inova na sala de aula. Na cientista que
-        busca a cura. Na executiva que lidera com estratégia. Gerente que lidera com coragem. O
-        empreendedorismo é uma postura de quem não aceita ser coadjuvante da própria história.
-      </p>
-      <p class="text-secondary">
-        O Entre Nós nasceu para reunir essas mulheres. Aquelas que entenderam que, para o mundo
-        lá fora funcionar, as engrenagens aqui dentro precisam estar ajustadas.
-      </p>
+    <div class="container manifesto-grid">
+      <article class="manifesto-main">
+        <p class="eyebrow">O Manifesto</p>
+        <h2>Você é mais do que o seu cargo.</h2>
+        <p class="text-secondary">
+          Muitas vezes nos dizem que empreender é sobre abrir uma empresa, emitir notas e gerir
+          funcionários. Na verdade, isso é apenas a concretização jurídica de algo que já existe
+          dentro de você.
+        </p>
+        <p class="text-secondary">
+          O espírito empreendedor está na professora que inova na sala de aula. Na cientista que
+          busca a cura. Na executiva que lidera com estratégia. Gerente que lidera com coragem. O
+          empreendedorismo é uma postura de quem não aceita ser coadjuvante da própria história.
+        </p>
+      </article>
+
+      <aside class="manifesto-side" aria-label="Destaques do manifesto">
+        <div class="manifesto-quote">
+          <p>"Empreender é uma forma de existir com coragem, propósito e presença."</p>
+        </div>
+        <div class="manifesto-points">
+          <h3>O que você fortalece aqui</h3>
+          <ul>
+            <li>Clareza para decisões importantes.</li>
+            <li>Confiança para ocupar seu lugar.</li>
+            <li>Rede de apoio com mulheres protagonistas.</li>
+          </ul>
+        </div>
+      </aside>
     </div>
   </section>
 
   <section id="pilares" class="panel panel-dark">
     <div class="container">
-      <p class="eyebrow">Os 4 Pilares</p>
-      <h2>A estrutura que sustenta a sua evolução.</h2>
-      <p class="text-secondary">
-        Para que sua trajetória seja sólida, não basta apenas "trabalhar muito". É preciso alinhar
-        as quatro dimensões que definem sua presença no mundo:
-      </p>
-      <ol class="pillar-list text-secondary">
-        <li><strong>Imagem Pessoal: Sua primeira mensagem.</strong> Transforme sua imagem em um ativo estratégico que comunica autoridade, intenção e respeito antes mesmo de você dizer a primeira palavra.</li>
-        <li><strong>Neurociência: O domínio da sua mente.</strong> Entenda os processos biológicos por trás da sua tomada de decisão, foco e inteligência emocional para performar sem esgotamento.</li>
-        <li><strong>Finanças: A base da sua liberdade.</strong> O dinheiro não é o fim, mas o meio que permite que você faça escolhas com autonomia e segurança.</li>
-        <li><strong>Espiritualidade: O seu alicerce invisível.</strong> O alinhamento com seu propósito e valores que traz clareza e paz para sustentar os desafios da jornada.</li>
-      </ol>
+      <div class="pillars-head">
+        <p class="eyebrow">Os 4 Pilares</p>
+        <h2>A estrutura que sustenta a sua evolução.</h2>
+        <p class="text-secondary">
+          Para crescer com consistência, você precisa equilibrar as quatro dimensões que sustentam sua presença no mundo.
+        </p>
+      </div>
+
+      <div class="pillars-grid" role="list" aria-label="Quatro pilares do empreendedorismo">
+        <article class="pillar-card" role="listitem">
+          <span class="pillar-icon" aria-hidden="true">✦</span>
+          <h3>Imagem Pessoal</h3>
+          <p class="text-secondary">Sua primeira mensagem. Construa uma presença que comunica autoridade, intenção e confiança.</p>
+        </article>
+
+        <article class="pillar-card" role="listitem">
+          <span class="pillar-icon" aria-hidden="true">🧠</span>
+          <h3>Neurociência</h3>
+          <p class="text-secondary">Domine foco e tomada de decisão para performar com equilíbrio emocional e clareza.</p>
+        </article>
+
+        <article class="pillar-card" role="listitem">
+          <span class="pillar-icon" aria-hidden="true">💰</span>
+          <h3>Finanças</h3>
+          <p class="text-secondary">Transforme dinheiro em estratégia para ter liberdade, previsibilidade e segurança.</p>
+        </article>
+
+        <article class="pillar-card" role="listitem">
+          <span class="pillar-icon" aria-hidden="true">✨</span>
+          <h3>Espiritualidade</h3>
+          <p class="text-secondary">Fortaleça seu alicerce invisível com propósito e valores para sustentar sua jornada.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -194,30 +226,38 @@ const siteUrl = "https://www.entrenos-evento.com.br";
       <div class="ticket-box">
         <p class="eyebrow">Rodapé / CTA Final</p>
         <h3>Chegou a hora de olhar para o que realmente sustenta o seu sucesso.</h3>
-        <p class="text-secondary">Data: [Inserir Data] Local: [Inserir Local/Plataforma] Investimento: [Inserir Valor]</p>
+        <p class="text-secondary">Data: 21/03/2026 · Horário: 13:00 às 18:00 · Local: Espaço Fiori · Investimento: R$ 197,00</p>
         <a href="https://octaadm.com.br/public/eventoapp?evento=Entrenos" class="cta" target="_blank" rel="noopener noreferrer">QUERO FAZER PARTE DO ENTRE NÓS</a>
       </div>
     </div>
   </section>
 
-  <section id="design" class="panel panel-dark">
-    <div class="container">
-      <p class="eyebrow">Dicas para o Design</p>
-      <ul class="text-secondary">
-        <li>Espaço em branco: Use uma página limpa, com fontes e cores do evento.</li>
-        <li>Fotos de impacto: Use fotos que transmitam essa ideia de "mulheres reais, mas extremamente competentes".</li>
-        <li>Conexão: Use fotos de mãos dadas ou olhares diretos para reforçar o nome "Entre Nós".</li>
-      </ul>
-    </div>
-  </section>
-
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="container footer-inner">
-      <p><strong class="gold">Entre Nós</strong> — Os 4 Pilares do Empreendedorismo.</p>
-      <p class="text-secondary">Conexão, propósito, estratégia e liberdade para mulheres protagonistas.</p>
-      <div class="footer-actions">
-        <a href="https://www.instagram.com/silmara_stylist/" class="ig-btn" target="_blank" rel="noopener noreferrer">Instagram @silmara_stylist</a>
+      <div class="footer-brand">
+        <p class="footer-title"><strong class="gold">Entre Nós</strong></p>
+        <p class="text-secondary">Os 4 Pilares do Empreendedorismo para mulheres protagonistas.</p>
+      </div>
+
+      <div class="footer-links-group">
+        <p class="footer-heading">Navegação</p>
+        <a href="#inicio" class="footer-link">Início</a>
+        <a href="#manifesto" class="footer-link">Manifesto</a>
+        <a href="#pilares" class="footer-link">4 Pilares</a>
+        <a href="#palestrantes" class="footer-link">Palestrantes</a>
+      </div>
+
+      <div class="footer-links-group">
+        <p class="footer-heading">Contato</p>
+        <a href="https://www.instagram.com/silmara_stylist/" class="footer-link" target="_blank" rel="noopener noreferrer">Instagram @silmara_stylist</a>
+        <a href="https://octaadm.com.br/public/eventoapp?evento=Entrenos" class="footer-link" target="_blank" rel="noopener noreferrer">Comprar ingresso</a>
         <a href="#inicio" class="footer-link">Voltar ao topo ↑</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© {new Date().getFullYear()} Entre Nós. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
