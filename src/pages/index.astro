@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import MainLayout from "../layouts/MainLayout.astro";
 import heroImage from "../assets/images/hero/hero.png";
 
@@ -24,29 +25,36 @@ const speakers = [
     image: "/palestrantes/icognito_3_card.png",
   },
 ];
+
+const siteUrl = "https://www.entrenos-evento.com.br";
 ---
 
-<MainLayout title="Entre Nós — Os 4 Pilares do Empreendedorismo">
+<MainLayout
+  title="Entre Nós — Os 4 Pilares do Empreendedorismo"
+  description="Uma imersão para mulheres empreendedoras com foco em imagem, neurociência, finanças e espiritualidade."
+  canonical={siteUrl}
+  ogImage="/LOGO%20ENTRE%20N%C3%93S.png"
+>
   <section id="inicio" class="panel panel-hero">
     <div class="container hero-grid">
       <div class="hero-copy">
         <p class="eyebrow">Headline - Dobra 1</p>
         <h1 class="hero-title gold">Entrepreneur</h1>
-        <p class="sub-headline">
+        <p class="sub-headline text-secondary">
           Palavra de origem francesa que atravessa séculos e que, antes de nomear
           negócios, nomeia espíritos.
         </p>
-        <p>
+        <p class="text-secondary">
           Há pessoas que apenas vivem o mundo… e há aquelas que o remodelam silenciosamente,
           com intenção, sensibilidade e coragem. Essas são as empreendedoras entre nós,
           mulheres que transformam ambientes, relações, caminhos.
         </p>
         <p><strong class="gold">Mulheres como você!</strong></p>
-        <p>
+        <p class="text-secondary">
           É por isso que nasce o Entre Nós: Os 4 Pilares do Empreendedorismo. Um encontro que
           transcende técnicas e estratégias.
         </p>
-        <p>
+        <p class="text-secondary">
           Aqui, o espiritual, o emocional, o financeiro e a imagem se entrelaçam para revelar
           aquilo que você já carrega por dentro, mas ainda não mostrou ao mundo. Uma imersão guiada
           por autoridades que não apenas ensinam: inspiram.
@@ -55,7 +63,19 @@ const speakers = [
       </div>
 
       <div class="hero-image-wrap">
-        <img class="hero-image" src={heroImage.src} alt="Mulher representando o movimento Entre Nós" />
+        <Image
+          class="hero-image"
+          src={heroImage}
+          alt="Mulher representando o movimento Entre Nós"
+          widths={[640, 960, 1280, 1600]}
+          sizes="(max-width: 980px) 92vw, 56vw"
+          formats={["avif", "webp"]}
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          width={1600}
+          height={1800}
+        />
       </div>
     </div>
   </section>
@@ -66,17 +86,17 @@ const speakers = [
     <div class="container">
       <p class="eyebrow">O Manifesto</p>
       <h2>Você é mais do que o seu cargo.</h2>
-      <p>
+      <p class="text-secondary">
         Muitas vezes nos dizem que empreender é sobre abrir uma empresa, emitir notas e gerir
         funcionários. Na verdade, isso é apenas a concretização jurídica de algo que já existe
         dentro de você.
       </p>
-      <p>
+      <p class="text-secondary">
         O espírito empreendedor está na professora que inova na sala de aula. Na cientista que
         busca a cura. Na executiva que lidera com estratégia. Gerente que lidera com coragem. O
         empreendedorismo é uma postura de quem não aceita ser coadjuvante da própria história.
       </p>
-      <p>
+      <p class="text-secondary">
         O Entre Nós nasceu para reunir essas mulheres. Aquelas que entenderam que, para o mundo
         lá fora funcionar, as engrenagens aqui dentro precisam estar ajustadas.
       </p>
@@ -87,11 +107,11 @@ const speakers = [
     <div class="container">
       <p class="eyebrow">Os 4 Pilares</p>
       <h2>A estrutura que sustenta a sua evolução.</h2>
-      <p>
+      <p class="text-secondary">
         Para que sua trajetória seja sólida, não basta apenas "trabalhar muito". É preciso alinhar
         as quatro dimensões que definem sua presença no mundo:
       </p>
-      <ol class="pillar-list">
+      <ol class="pillar-list text-secondary">
         <li><strong>Imagem Pessoal: Sua primeira mensagem.</strong> Transforme sua imagem em um ativo estratégico que comunica autoridade, intenção e respeito antes mesmo de você dizer a primeira palavra.</li>
         <li><strong>Neurociência: O domínio da sua mente.</strong> Entenda os processos biológicos por trás da sua tomada de decisão, foco e inteligência emocional para performar sem esgotamento.</li>
         <li><strong>Finanças: A base da sua liberdade.</strong> O dinheiro não é o fim, mas o meio que permite que você faça escolhas com autonomia e segurança.</li>
@@ -105,26 +125,56 @@ const speakers = [
       <p class="eyebrow">As Palestrantes / Autoridades</p>
       <p class="notice">ESTE APENAS DEPOIS DE REVELADA AS PALESTRANTES.</p>
       <h2>Quatro mentes, um único propósito.</h2>
-      <p>Conheça as especialistas que guiarão você através dessa jornada de alinhamento:</p>
+      <p class="text-secondary-dark">Conheça as especialistas que guiarão você através dessa jornada de alinhamento:</p>
 
-      <div class="speaker-carousel" data-carousel>
-        <button class="carousel-btn" data-prev aria-label="Anterior">‹</button>
-        <div class="carousel-viewport">
-          <div class="carousel-track" data-track>
-            {speakers.map((speaker) => (
-              <article class="speaker-card">
-                <div class="speaker-media"><img src={speaker.image} alt={speaker.name} loading="lazy" /></div>
+      <div
+        class="speaker-carousel"
+        data-carousel
+        aria-label="Carrossel de palestrantes"
+        aria-roledescription="carousel"
+      >
+        <button
+          type="button"
+          class="carousel-btn"
+          data-prev
+          aria-label="Palestrante anterior"
+          aria-controls="speakers-track"
+        >
+          ‹
+        </button>
+        <div class="carousel-viewport" id="speakers-track" data-track tabindex="0">
+          <div class="carousel-track">
+            {speakers.length > 0 ? (
+              speakers.map((speaker, index) => (
+                <article class="speaker-card" data-slide data-index={index} aria-roledescription="slide" aria-label={`Palestrante ${index + 1} de ${speakers.length}`}>
+                  <div class="speaker-media"><img src={speaker.image} alt={speaker.name} loading="lazy" /></div>
+                  <div class="speaker-content">
+                    <h3>{speaker.name}</h3>
+                    <p class="text-secondary-light">{speaker.role}</p>
+                  </div>
+                </article>
+              ))
+            ) : (
+              <article class="speaker-card speaker-card-empty" data-slide>
                 <div class="speaker-content">
-                  <h3>{speaker.name}</h3>
-                  <p>{speaker.role}</p>
+                  <h3>Em breve</h3>
+                  <p class="text-secondary-light">As próximas palestrantes serão reveladas em breve.</p>
                 </div>
               </article>
-            ))}
+            )}
           </div>
         </div>
-        <button class="carousel-btn" data-next aria-label="Próximo">›</button>
+        <button
+          type="button"
+          class="carousel-btn"
+          data-next
+          aria-label="Próxima palestrante"
+          aria-controls="speakers-track"
+        >
+          ›
+        </button>
       </div>
-      <div class="carousel-dots" data-dots></div>
+      <div class="carousel-dots" data-dots aria-live="polite"></div>
     </div>
   </section>
 
@@ -134,7 +184,7 @@ const speakers = [
     <div class="container">
       <p class="eyebrow">Para quem é o evento</p>
       <h2>Este lugar é seu se você:</h2>
-      <ul>
+      <ul class="text-secondary">
         <li>É uma mulher que busca protagonismo em sua área de atuação.</li>
         <li>Sente que está negligenciando algum pilar da vida para ter sucesso profissional.</li>
         <li>Deseja fazer networking com outras mulheres que compartilham da mesma visão de mundo.</li>
@@ -144,7 +194,7 @@ const speakers = [
       <div class="ticket-box">
         <p class="eyebrow">Rodapé / CTA Final</p>
         <h3>Chegou a hora de olhar para o que realmente sustenta o seu sucesso.</h3>
-        <p>Data: [Inserir Data] Local: [Inserir Local/Plataforma] Investimento: [Inserir Valor]</p>
+        <p class="text-secondary">Data: [Inserir Data] Local: [Inserir Local/Plataforma] Investimento: [Inserir Valor]</p>
         <a href="https://octaadm.com.br/public/eventoapp?evento=Entrenos" class="cta" target="_blank" rel="noopener noreferrer">QUERO FAZER PARTE DO ENTRE NÓS</a>
       </div>
     </div>
@@ -153,7 +203,7 @@ const speakers = [
   <section id="design" class="panel panel-dark">
     <div class="container">
       <p class="eyebrow">Dicas para o Design</p>
-      <ul>
+      <ul class="text-secondary">
         <li>Espaço em branco: Use uma página limpa, com fontes e cores do evento.</li>
         <li>Fotos de impacto: Use fotos que transmitam essa ideia de "mulheres reais, mas extremamente competentes".</li>
         <li>Conexão: Use fotos de mãos dadas ou olhares diretos para reforçar o nome "Entre Nós".</li>
@@ -164,7 +214,7 @@ const speakers = [
   <footer class="site-footer">
     <div class="container footer-inner">
       <p><strong class="gold">Entre Nós</strong> — Os 4 Pilares do Empreendedorismo.</p>
-      <p>Conexão, propósito, estratégia e liberdade para mulheres protagonistas.</p>
+      <p class="text-secondary">Conexão, propósito, estratégia e liberdade para mulheres protagonistas.</p>
       <div class="footer-actions">
         <a href="https://www.instagram.com/silmara_stylist/" class="ig-btn" target="_blank" rel="noopener noreferrer">Instagram @silmara_stylist</a>
         <a href="#inicio" class="footer-link">Voltar ao topo ↑</a>
@@ -172,42 +222,5 @@ const speakers = [
     </div>
   </footer>
 
-  <script is:inline>
-    const carousel = document.querySelector('[data-carousel]');
-    if (carousel) {
-      const track = carousel.querySelector('[data-track]');
-      const prev = carousel.querySelector('[data-prev]');
-      const next = carousel.querySelector('[data-next]');
-      const dotsWrap = document.querySelector('[data-dots]');
-      const cards = Array.from(carousel.querySelectorAll('.speaker-card'));
-      let current = 0;
-      let timer;
-
-      const goTo = (index) => {
-        current = (index + cards.length) % cards.length;
-        track.scrollTo({ left: cards[current].offsetLeft, behavior: 'smooth' });
-        if (dotsWrap) [...dotsWrap.children].forEach((d, i) => d.setAttribute('aria-current', i === current ? 'true' : 'false'));
-      };
-
-      const startAuto = () => { timer = setInterval(() => goTo(current + 1), 4300); };
-      const stopAuto = () => clearInterval(timer);
-
-      if (dotsWrap) {
-        cards.forEach((_, i) => {
-          const dot = document.createElement('button');
-          dot.type = 'button';
-          dot.className = 'dot';
-          dot.addEventListener('click', () => goTo(i));
-          dotsWrap.appendChild(dot);
-        });
-      }
-
-      prev?.addEventListener('click', () => goTo(current - 1));
-      next?.addEventListener('click', () => goTo(current + 1));
-      carousel.addEventListener('mouseenter', stopAuto);
-      carousel.addEventListener('mouseleave', startAuto);
-      goTo(0);
-      startAuto();
-    }
-  </script>
+  <script src="/scripts/carousel.js" defer></script>
 </MainLayout>
