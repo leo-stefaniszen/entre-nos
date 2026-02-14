@@ -7,38 +7,45 @@ const speakers = [
     name: "Silmara [Sobrenome]",
     role: "Liderança e visão do projeto Entre Nós",
     description:
-      "Breve descrição da Silmara focando na visão de liderança e no projeto Entre Nós.",
+      "Idealizadora do movimento com foco em posicionamento feminino, estratégia e expansão com propósito.",
     image: "/palestrantes/silmara_card.png",
   },
   {
     name: "Kamila dos Santos",
     role: "Especialista em Imagem Pessoal",
     description:
-      "Especialista em Imagem Pessoal, posicionamento e autoridade visual para mulheres protagonistas.",
+      "Imagem como ativo estratégico para autoridade, valor percebido e presença de alto impacto.",
     image: "/palestrantes/icognito_1_card.png",
   },
   {
     name: "Dra. Helena Costa",
-    role: "Especialista em Neurociência/Saúde Mental",
+    role: "Especialista em Neurociência",
     description:
-      "Especialista em Neurociência/Saúde Mental, foco, tomada de decisão e inteligência emocional com alta performance.",
+      "Foco, energia e inteligência emocional aplicadas à performance sem esgotamento.",
     image: "/palestrantes/icognito_2_card.png",
   },
   {
     name: "Marina Valença",
     role: "Especialista em Finanças",
     description:
-      "Especialista em Finanças para liberdade, segurança e crescimento sustentável na jornada empreendedora.",
+      "Estratégias para liberdade financeira e decisões de crescimento com segurança.",
     image: "/palestrantes/icognito_3_card.png",
   },
+];
+
+const pillars = [
+  ["Imagem Pessoal", "Sua primeira mensagem: presença com autoridade e intenção."],
+  ["Neurociência", "Decisão, foco e equilíbrio emocional para performar melhor."],
+  ["Finanças", "A base da liberdade para escolhas com segurança."],
+  ["Espiritualidade", "Alinhamento interno para sustentar a jornada."],
 ];
 ---
 
 <MainLayout title="Entre Nós — Os 4 Pilares do Empreendedorismo">
-  <section id="inicio" class="panel panel-ruby hero-panel">
+  <section id="inicio" class="panel panel-hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <h1 class="hero-title hero-concept gold">Empreendedora</h1>
+        <h1 class="hero-title gold">Empreendedora</h1>
         <p class="sub-headline">
           Palavra de origem francesa que atravessa séculos e, antes de nomear negócios,
           nomeia espíritos.
@@ -48,10 +55,8 @@ const speakers = [
           sensibilidade e coragem.
         </p>
         <p>
-          O Entre Nós nasce para revelar seus 4 pilares: espiritual, emocional, financeiro
-          e imagem.
+          O Entre Nós revela seus 4 pilares: espiritual, emocional, financeiro e imagem.
         </p>
-        <p><strong class="gold">Mulheres como você!</strong></p>
         <a href="#evento" class="cta hero-cta">QUERO MINHA VAGA NO MOVIMENTO</a>
       </div>
 
@@ -61,23 +66,31 @@ const speakers = [
     </div>
   </section>
 
-  <section id="manifesto" class="panel panel-beige">
+  <div class="ribbon">QUEEN ACCELERATION EXPERIENCE · ENTRE NÓS · QUEEN ACCELERATION EXPERIENCE · ENTRE NÓS</div>
+
+  <section class="panel panel-dark" id="expectativas">
+    <div class="container centered">
+      <h2>O que você pode esperar?</h2>
+      <p class="lead">Dois dias intensos de transformação com método, profundidade e execução.</p>
+      <div class="expect-grid">
+        <article class="card"><h3>Estratégia</h3><p>Conteúdo acionável para tirar planos do papel e gerar resultado.</p></article>
+        <article class="card"><h3>Mentoria</h3><p>Direcionamento com especialistas para clareza e decisão com confiança.</p></article>
+        <article class="card"><h3>Rede</h3><p>Conexão com mulheres de alto nível, visão e ambição em comum.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="manifesto" class="panel panel-light">
     <div class="container">
       <p class="eyebrow">O Manifesto</p>
       <h2>Você é mais do que o seu cargo.</h2>
       <p>
-        Muitas vezes nos dizem que empreender é sobre abrir uma empresa, emitir notas e gerir
-        funcionários. Na verdade, isso é apenas a concretização jurídica de algo que já existe
-        dentro de você.
+        Muitas vezes nos dizem que empreender é abrir empresa e gerir equipe. Na verdade,
+        isso é apenas a concretização jurídica de algo que já existe dentro de você.
       </p>
       <p>
-        O espírito empreendedor está na professora que inova na sala de aula. Na cientista que
-        busca a cura. Na executiva que lidera com estratégia. Gerente que lidera com coragem. O
-        empreendedorismo é uma postura de quem não aceita ser coadjuvante da própria história.
-      </p>
-      <p>
-        O Entre Nós nasceu para reunir essas mulheres. Aquelas que entenderam que, para o mundo
-        lá fora funcionar, as engrenagens aqui dentro precisam estar ajustadas.
+        O espírito empreendedor está na professora que inova, na cientista que busca cura e
+        na executiva que lidera com coragem. É postura de protagonista.
       </p>
     </div>
   </section>
@@ -86,53 +99,21 @@ const speakers = [
     <div class="container">
       <p class="eyebrow">Os 4 Pilares</p>
       <h2>A estrutura que sustenta a sua evolução.</h2>
-      <p>
-        Para que sua trajetória seja sólida, não basta apenas "trabalhar muito". É preciso
-        alinhar as quatro dimensões que definem sua presença no mundo:
-      </p>
-
-      <div class="cards-grid">
-        <article class="card">
-          <h3>1. Imagem Pessoal</h3>
-          <p>
-            Sua primeira mensagem. Transforme sua imagem em um ativo estratégico que comunica
-            autoridade, intenção e respeito antes mesmo de você dizer a primeira palavra.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>2. Neurociência</h3>
-          <p>
-            O domínio da sua mente. Entenda os processos biológicos por trás da sua tomada de
-            decisão, foco e inteligência emocional para performar sem esgotamento.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>3. Finanças</h3>
-          <p>
-            A base da sua liberdade. O dinheiro não é o fim, mas o meio que permite que você faça
-            escolhas com autonomia e segurança.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>4. Espiritualidade</h3>
-          <p>
-            O seu alicerce invisível. O alinhamento com seu propósito e valores que traz clareza e
-            paz para sustentar os desafios da jornada.
-          </p>
-        </article>
+      <div class="timeline">
+        {pillars.map(([title, desc]) => (
+          <article class="node">
+            <h3>{title}</h3>
+            <p>{desc}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <section id="palestrantes" class="panel panel-ruby">
+  <section id="palestrantes" class="panel panel-hero">
     <div class="container">
       <p class="eyebrow">As Palestrantes / Autoridades</p>
-      <p class="notice">ESTE APENAS DEPOIS DE REVELADA AS PALESTRANTES.</p>
       <h2>Quatro mentes, um único propósito.</h2>
-      <p>Conheça as especialistas que guiarão você através dessa jornada de alinhamento:</p>
 
       <div class="speaker-carousel" data-carousel>
         <button class="carousel-btn" data-prev aria-label="Anterior">‹</button>
@@ -140,9 +121,7 @@ const speakers = [
           <div class="carousel-track" data-track>
             {speakers.map((speaker) => (
               <article class="speaker-card">
-                <div class="speaker-media">
-                  <img src={speaker.image} alt={speaker.name} loading="lazy" />
-                </div>
+                <div class="speaker-media"><img src={speaker.image} alt={speaker.name} loading="lazy" /></div>
                 <div class="speaker-content">
                   <h3>{speaker.name}</h3>
                   <p class="speaker-role gold">{speaker.role}</p>
@@ -157,25 +136,33 @@ const speakers = [
     </div>
   </section>
 
-  <section id="evento" class="panel panel-beige">
+  <section id="evento" class="panel panel-light">
     <div class="container">
       <p class="eyebrow">Para quem é o evento</p>
-      <div class="section-mark" aria-hidden="true"></div>
       <h2>Este lugar é seu se você:</h2>
       <ul>
-        <li>É uma mulher que busca protagonismo em sua área de atuação.</li>
-        <li>Sente que está negligenciando algum pilar da vida para ter sucesso profissional.</li>
-        <li>Deseja fazer networking com outras mulheres que compartilham da mesma visão de mundo.</li>
-        <li>Entende que o autoconhecimento é o melhor investimento para sua carreira.</li>
+        <li>Busca protagonismo em sua área de atuação.</li>
+        <li>Sente que está negligenciando algum pilar para ter sucesso profissional.</li>
+        <li>Deseja networking com mulheres da mesma visão de mundo.</li>
+        <li>Entende que autoconhecimento é investimento de carreira.</li>
       </ul>
-      <h3 class="event-cta-title">
-        Chegou a hora de olhar para o que realmente sustenta o seu sucesso.
-      </h3>
-      <p>
-        Data: <strong>[Inserir Data]</strong> · Local: <strong>[Inserir Local/Plataforma]</strong> ·
-        Investimento: <strong>[Inserir Valor]</strong>
-      </p>
-      <a href="#inicio" class="cta">QUERO FAZER PARTE DO ENTRE NÓS</a>
+
+      <div class="ticket-box">
+        <h3>Chegou a hora de olhar para o que realmente sustenta o seu sucesso.</h3>
+        <p>Data: <strong>[Inserir Data]</strong> · Local: <strong>[Inserir Local/Plataforma]</strong> · Investimento: <strong>[Inserir Valor]</strong></p>
+        <a href="#inicio" class="cta">QUERO FAZER PARTE DO ENTRE NÓS</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel panel-dark" id="faq">
+    <div class="container centered">
+      <h2>FAQ</h2>
+      <div class="faq-list">
+        <article><h3>É presencial?</h3><p>Sim. A experiência foi desenhada para conexão real e imersão total.</p></article>
+        <article><h3>Posso participar sem empresa aberta?</h3><p>Sim. O foco é mentalidade, posicionamento e estrutura pessoal.</p></article>
+        <article><h3>Há certificado?</h3><p>Sim, com confirmação de participação ao final da imersão.</p></article>
+      </div>
     </div>
   </section>
 
@@ -195,12 +182,10 @@ const speakers = [
       const next = carousel.querySelector('[data-next]');
       const cards = carousel.querySelectorAll('.speaker-card');
       let current = 0;
-
       const goTo = (index) => {
         current = (index + cards.length) % cards.length;
         track.scrollTo({ left: cards[current].offsetLeft, behavior: 'smooth' });
       };
-
       prev?.addEventListener('click', () => goTo(current - 1));
       next?.addEventListener('click', () => goTo(current + 1));
     }
