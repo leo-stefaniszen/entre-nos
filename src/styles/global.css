@@ -135,13 +135,13 @@ p, li { font-size: 1rem; line-height: 1.6; }
 .carousel-btn { width: 48px; height: 48px; border-radius: 14px; cursor: pointer; border: 1px solid color-mix(in srgb, var(--c-gold-2) 80%, transparent); background: linear-gradient(160deg, #6a140a, #4e0e07); color: var(--c-gold-2); font-size: 1.6rem; box-shadow: 0 8px 20px rgba(0,0,0,.25); transition: transform .2s ease, filter .2s ease; }
 .carousel-btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
 .carousel-viewport { overflow: hidden; border-radius: 18px; }
-.carousel-track { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.carousel-track { display: flex; gap: 0; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .carousel-track::-webkit-scrollbar { display: none; }
-.speaker-card { min-width: min(760px,100%); width: min(760px,100%); scroll-snap-align: center; border: none; border-radius: 18px; padding: 0; overflow: hidden; background: transparent; display: grid; grid-template-columns: .42fr .58fr; gap: 0; align-items: stretch; }
-.speaker-media { border-radius: 0; overflow: hidden; border-right: none; background: transparent; }
-.speaker-card img { width: 100%; height: 100%; min-height: 320px; object-fit: contain; display:block; margin:0; background: transparent; filter: saturate(.95) contrast(.99); }
-.speaker-content { padding: 22px 22px 20px; background: transparent; }
-.speaker-content p { margin: 0; }
+.speaker-card { min-width: 100%; width: 100%; scroll-snap-align: center; border: none; border-radius: 18px; padding: 0; overflow: hidden; background: #fff; display: grid; grid-template-columns: .42fr .58fr; gap: 0; align-items: stretch; }
+.speaker-media { border-radius: 0; overflow: hidden; border-right: none; background: #fff; }
+.speaker-card img { width: 100%; height: 100%; min-height: 320px; object-fit: contain; display:block; margin:0; background: #fff; filter: saturate(.95) contrast(.99); }
+.speaker-content { padding: 24px 24px 22px; background: #fff; text-align: center; }
+.speaker-content p { margin: 0; color: #5a2a1d; }
 .speaker-card-empty { min-height: 280px; place-items: center; }
 
 .carousel-dots { display:flex; justify-content:center; gap:10px; margin-top:14px; }
@@ -168,7 +168,12 @@ p, li { font-size: 1rem; line-height: 1.6; }
 
 ul { padding-left: 20px; }
 li + li { margin-top: 8px; }
+.evento-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 22px; align-items: stretch; }
+.evento-main { padding: 26px; border-radius: 16px; border: 1px solid color-mix(in srgb, var(--c-gold-2) 45%, transparent); background: color-mix(in srgb, #2f0905 60%, transparent); }
+.evento-points { display: grid; gap: 10px; margin-top: 14px; }
+.evento-points p { margin: 0; }
 .ticket-box { margin-top: 26px; border: 1px solid color-mix(in srgb, var(--c-gold-2) 50%, transparent); border-radius: 14px; padding: 24px; background: color-mix(in srgb, var(--c-dark) 72%, transparent); }
+.ticket-box-highlight { margin-top: 0; display: grid; align-content: start; gap: 4px; }
 
 .site-footer {
   background:
@@ -214,7 +219,7 @@ li + li { margin-top: 8px; }
   .hero-image-wrap { min-height: min(55svh, 500px); }
   .hero-image { width: min(108%, 800px); max-height: min(62svh, 820px); transform: translateX(6%); }
   .speaker-card img { height: 260px; min-height: 260px; }
-  .manifesto-grid, .pillars-grid { grid-template-columns: 1fr; }
+  .manifesto-grid, .pillars-grid, .evento-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; gap: 18px; }
   .brand img { width: 140px; }
   .nav-inner { padding: 12px 0; }
