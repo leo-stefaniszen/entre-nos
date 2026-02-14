@@ -198,11 +198,11 @@ li + li { margin-top: 8px; }
 
 :focus-visible { outline: 3px solid var(--c-gold-3); outline-offset: 3px; border-radius: 8px; }
 
-.panel-speakers { background: #f7f3ee; color: #2f180f; position: relative; overflow: hidden; }
-.panel-speakers::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 8% 18%, rgba(190,151,110,.18), transparent 30%), radial-gradient(circle at 92% 70%, rgba(190,151,110,.16), transparent 28%); pointer-events: none; }
+.panel-speakers { background: transparent; color: var(--c-gold-soft); position: relative; overflow: visible; }
+.panel-speakers::before { content: none; }
 .panel-speakers .container { position: relative; z-index: 1; }
-.panel-speakers h2 { color: #2f180f; letter-spacing: .03em; }
-.panel-speakers .eyebrow { color:#7f1f0e; }
+.panel-speakers h2 { color: var(--c-gold-3); letter-spacing: .03em; }
+.panel-speakers .eyebrow { color: var(--c-gold-2); }
 
 @media (max-width: 1920px) {
   .container { padding-inline: 32px; }
