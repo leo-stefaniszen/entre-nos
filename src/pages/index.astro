@@ -110,10 +110,10 @@ const pillars = [
     </div>
   </section>
 
-  <section id="palestrantes" class="panel panel-hero">
-    <div class="container">
-      <p class="eyebrow">As Palestrantes / Autoridades</p>
-      <h2>Quatro mentes, um único propósito.</h2>
+  <section id="palestrantes" class="panel panel-speakers">
+    <div class="container centered">
+      <h2>QUEENS CONVIDADAS</h2>
+      <p class="ornament">✧</p>
 
       <div class="speaker-carousel" data-carousel>
         <button class="carousel-btn" data-prev aria-label="Anterior">‹</button>
@@ -133,6 +133,7 @@ const pillars = [
         </div>
         <button class="carousel-btn" data-next aria-label="Próximo">›</button>
       </div>
+      <div class="carousel-dots" data-dots></div>
     </div>
   </section>
 
@@ -150,7 +151,7 @@ const pillars = [
       <div class="ticket-box">
         <h3>Chegou a hora de olhar para o que realmente sustenta o seu sucesso.</h3>
         <p>Data: <strong>[Inserir Data]</strong> · Local: <strong>[Inserir Local/Plataforma]</strong> · Investimento: <strong>[Inserir Valor]</strong></p>
-        <a href="#inicio" class="cta">QUERO FAZER PARTE DO ENTRE NÓS</a>
+        <a href="https://octaadm.com.br/public/eventoapp?evento=Entrenos" class="cta" target="_blank" rel="noopener noreferrer">QUERO FAZER PARTE DO ENTRE NÓS</a>
       </div>
     </div>
   </section>
@@ -170,7 +171,10 @@ const pillars = [
     <div class="container footer-inner">
       <p><strong class="gold">Entre Nós</strong> — Os 4 Pilares do Empreendedorismo.</p>
       <p>Conexão, propósito, estratégia e liberdade para mulheres protagonistas.</p>
-      <a href="#inicio" class="footer-link">Voltar ao topo ↑</a>
+      <div class="footer-actions">
+        <a href="https://www.instagram.com/silmara_stylist/" class="ig-btn" target="_blank" rel="noopener noreferrer">Instagram @silmara_stylist</a>
+        <a href="#inicio" class="footer-link">Voltar ao topo ↑</a>
+      </div>
     </div>
   </footer>
 
@@ -180,14 +184,40 @@ const pillars = [
       const track = carousel.querySelector('[data-track]');
       const prev = carousel.querySelector('[data-prev]');
       const next = carousel.querySelector('[data-next]');
-      const cards = carousel.querySelectorAll('.speaker-card');
+      const dotsWrap = document.querySelector('[data-dots]');
+      const cards = Array.from(carousel.querySelectorAll('.speaker-card'));
       let current = 0;
+      let timer;
+
       const goTo = (index) => {
         current = (index + cards.length) % cards.length;
         track.scrollTo({ left: cards[current].offsetLeft, behavior: 'smooth' });
+        if (dotsWrap) {
+          [...dotsWrap.children].forEach((d, i) => d.setAttribute('aria-current', i === current ? 'true' : 'false'));
+        }
       };
+
+      const startAuto = () => {
+        timer = setInterval(() => goTo(current + 1), 4000);
+      };
+      const stopAuto = () => clearInterval(timer);
+
+      if (dotsWrap) {
+        cards.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'dot';
+          dot.addEventListener('click', () => goTo(i));
+          dotsWrap.appendChild(dot);
+        });
+      }
+
       prev?.addEventListener('click', () => goTo(current - 1));
       next?.addEventListener('click', () => goTo(current + 1));
+      carousel.addEventListener('mouseenter', stopAuto);
+      carousel.addEventListener('mouseleave', startAuto);
+      goTo(0);
+      startAuto();
     }
   </script>
 </MainLayout>
