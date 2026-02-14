@@ -1,100 +1,213 @@
 ---
-import "../styles/global.css";
-
-import logo from "../assets/images/logo/logo.png";
+import MainLayout from "../layouts/MainLayout.astro";
 import heroImage from "../assets/images/hero/hero.png";
 
-import Ticket3D from "../components/Ticket3D.astro";
-import Expectativas3 from "../components/Expectativas3.astro";
-import Pilares from "../components/Pilares.astro";
-import CarouselPalestrantes from "../components/CarouselPalestrantes.astro";
-import Footer from "../components/Footer.astro";
+const speakers = [
+  {
+    name: "Silmara [Sobrenome]",
+    role: "(Breve descrição da Silmara focando na visão de liderança e no projeto \"Entre Nós\").",
+    image: "/palestrantes/silmara_card.png",
+  },
+  {
+    name: "[Nome Palestrante 2]",
+    role: "Especialista em Imagem Pessoal.",
+    image: "/palestrantes/icognito_1_card.png",
+  },
+  {
+    name: "[Nome Palestrante 3]",
+    role: "Especialista em Neurociência/Saúde Mental.",
+    image: "/palestrantes/icognito_2_card.png",
+  },
+  {
+    name: "[Nome Palestrante 4]",
+    role: "Especialista em Finanças.",
+    image: "/palestrantes/icognito_3_card.png",
+  },
+];
 ---
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <title>Entre Nós — Os 4 Pilares do Empreendedorismo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-
-  <body>
-    <!-- NAVBAR -->
-    <nav class="navbar">
-      <div class="nav-inner">
-        <a class="brand" href="#topo" aria-label="Ir para o topo">
-          <img src={logo.src} alt="Entre Nós" />
-        </a>
-
-        <div class="nav-links" aria-label="Navegação">
-          <a href="#evento">Evento</a>
-          <a href="#experiencia">Experiência</a>
-          <a href="#pilares">Pilares</a>
-          <a href="#palestrantes">Palestrantes</a>
-
-          <!-- ✅ CTA ahora manda al BOLETO -->
-          <a class="cta" href="#ingresso">Quero minha vaga</a>
-        </div>
+<MainLayout title="Entre Nós — Os 4 Pilares do Empreendedorismo">
+  <section id="inicio" class="panel panel-hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Headline - Dobra 1</p>
+        <h1 class="hero-title gold">Entrepreneur</h1>
+        <p class="sub-headline">
+          Palavra de origem francesa que atravessa séculos e que, antes de nomear
+          negócios, nomeia espíritos.
+        </p>
+        <p>
+          Há pessoas que apenas vivem o mundo… e há aquelas que o remodelam silenciosamente,
+          com intenção, sensibilidade e coragem. Essas são as empreendedoras entre nós,
+          mulheres que transformam ambientes, relações, caminhos.
+        </p>
+        <p><strong class="gold">Mulheres como você!</strong></p>
+        <p>
+          É por isso que nasce o Entre Nós: Os 4 Pilares do Empreendedorismo. Um encontro que
+          transcende técnicas e estratégias.
+        </p>
+        <p>
+          Aqui, o espiritual, o emocional, o financeiro e a imagem se entrelaçam para revelar
+          aquilo que você já carrega por dentro, mas ainda não mostrou ao mundo. Uma imersão guiada
+          por autoridades que não apenas ensinam: inspiram.
+        </p>
+        <a href="#evento" class="cta hero-cta">QUERO MINHA VAGA NO MOVIMENTO</a>
       </div>
-    </nav>
 
-    <!-- HERO -->
-    <section id="topo" class="hero">
-      <div class="container hero-pro">
-        <div class="hero-copy">
-          <h1 class="hero-title">
-            FINAL DE SEMANA<br />
-            DE ACELERAÇÃO<br />
-            PARA EMPRESÁRIAS<br />
-            <span>QUEEN</span>
-          </h1>
-
-          <p class="hero-text">
-            Um final de semana presencial para acelerar seus resultados no universo
-            digital, elevar sua percepção de valor e destravar sua produção de
-            conteúdo com estratégia e posicionamento.
-          </p>
-
-          <!-- ✅ CTA ahora manda al BOLETO -->
-          <a href="#ingresso" class="hero-cta">Quero minha vaga</a>
-        </div>
-
-        <div class="hero-image">
-          <img src={heroImage.src} alt="Entre Nós — Queen Experience" />
-        </div>
+      <div class="hero-image-wrap">
+        <img class="hero-image" src={heroImage.src} alt="Mulher representando o movimento Entre Nós" />
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- SEÇÕES -->
-    <section id="evento">
-      <!-- Si vos tenías EventInfoCard acá antes, ponelo acá -->
-      <!-- <EventInfoCard /> -->
-    </section>
+  <div class="ribbon">ENTRE NÓS · OS 4 PILARES DO EMPREENDEDORISMO · ENTRE NÓS · OS 4 PILARES DO EMPREENDEDORISMO</div>
 
-    <section id="ingresso">
-      <Ticket3D />
-    </section>
+  <section id="manifesto" class="panel panel-second">
+    <div class="container">
+      <p class="eyebrow">O Manifesto</p>
+      <h2>Você é mais do que o seu cargo.</h2>
+      <p>
+        Muitas vezes nos dizem que empreender é sobre abrir uma empresa, emitir notas e gerir
+        funcionários. Na verdade, isso é apenas a concretização jurídica de algo que já existe
+        dentro de você.
+      </p>
+      <p>
+        O espírito empreendedor está na professora que inova na sala de aula. Na cientista que
+        busca a cura. Na executiva que lidera com estratégia. Gerente que lidera com coragem. O
+        empreendedorismo é uma postura de quem não aceita ser coadjuvante da própria história.
+      </p>
+      <p>
+        O Entre Nós nasceu para reunir essas mulheres. Aquelas que entenderam que, para o mundo
+        lá fora funcionar, as engrenagens aqui dentro precisam estar ajustadas.
+      </p>
+    </div>
+  </section>
 
-    <section id="experiencia">
-      <Expectativas3 />
-    </section>
+  <section id="pilares" class="panel panel-dark">
+    <div class="container">
+      <p class="eyebrow">Os 4 Pilares</p>
+      <h2>A estrutura que sustenta a sua evolução.</h2>
+      <p>
+        Para que sua trajetória seja sólida, não basta apenas "trabalhar muito". É preciso alinhar
+        as quatro dimensões que definem sua presença no mundo:
+      </p>
+      <ol class="pillar-list">
+        <li><strong>Imagem Pessoal: Sua primeira mensagem.</strong> Transforme sua imagem em um ativo estratégico que comunica autoridade, intenção e respeito antes mesmo de você dizer a primeira palavra.</li>
+        <li><strong>Neurociência: O domínio da sua mente.</strong> Entenda os processos biológicos por trás da sua tomada de decisão, foco e inteligência emocional para performar sem esgotamento.</li>
+        <li><strong>Finanças: A base da sua liberdade.</strong> O dinheiro não é o fim, mas o meio que permite que você faça escolhas com autonomia e segurança.</li>
+        <li><strong>Espiritualidade: O seu alicerce invisível.</strong> O alinhamento com seu propósito e valores que traz clareza e paz para sustentar os desafios da jornada.</li>
+      </ol>
+    </div>
+  </section>
 
-    <section id="pilares">
-      <Pilares />
-    </section>
+  <section id="palestrantes" class="panel panel-speakers">
+    <div class="container centered">
+      <p class="eyebrow">As Palestrantes / Autoridades</p>
+      <p class="notice">ESTE APENAS DEPOIS DE REVELADA AS PALESTRANTES.</p>
+      <h2>Quatro mentes, um único propósito.</h2>
+      <p>Conheça as especialistas que guiarão você através dessa jornada de alinhamento:</p>
 
-    <section id="palestrantes">
-      <CarouselPalestrantes />
-    </section>
+      <div class="speaker-carousel" data-carousel>
+        <button class="carousel-btn" data-prev aria-label="Anterior">‹</button>
+        <div class="carousel-viewport">
+          <div class="carousel-track" data-track>
+            {speakers.map((speaker) => (
+              <article class="speaker-card">
+                <div class="speaker-media"><img src={speaker.image} alt={speaker.name} loading="lazy" /></div>
+                <div class="speaker-content">
+                  <h3>{speaker.name}</h3>
+                  <p>{speaker.role}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+        <button class="carousel-btn" data-next aria-label="Próximo">›</button>
+      </div>
+      <div class="carousel-dots" data-dots></div>
+    </div>
+  </section>
 
-    <!-- ✅ Footer real -->
-    <Footer logoSrc={logo.src} />
-  </body>
-</html>
+  <div class="ribbon">ENTRE NÓS · CONEXÃO · PROPÓSITO · LIDERANÇA · ENTRE NÓS · CONEXÃO · PROPÓSITO · LIDERANÇA</div>
+
+  <section id="evento" class="panel panel-light">
+    <div class="container">
+      <p class="eyebrow">Para quem é o evento</p>
+      <h2>Este lugar é seu se você:</h2>
+      <ul>
+        <li>É uma mulher que busca protagonismo em sua área de atuação.</li>
+        <li>Sente que está negligenciando algum pilar da vida para ter sucesso profissional.</li>
+        <li>Deseja fazer networking com outras mulheres que compartilham da mesma visão de mundo.</li>
+        <li>Entende que o autoconhecimento é o melhor investimento para sua carreira.</li>
+      </ul>
+
+      <div class="ticket-box">
+        <p class="eyebrow">Rodapé / CTA Final</p>
+        <h3>Chegou a hora de olhar para o que realmente sustenta o seu sucesso.</h3>
+        <p>Data: [Inserir Data] Local: [Inserir Local/Plataforma] Investimento: [Inserir Valor]</p>
+        <a href="https://octaadm.com.br/public/eventoapp?evento=Entrenos" class="cta" target="_blank" rel="noopener noreferrer">QUERO FAZER PARTE DO ENTRE NÓS</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="design" class="panel panel-dark">
+    <div class="container">
+      <p class="eyebrow">Dicas para o Design</p>
+      <ul>
+        <li>Espaço em branco: Use uma página limpa, com fontes e cores do evento.</li>
+        <li>Fotos de impacto: Use fotos que transmitam essa ideia de "mulheres reais, mas extremamente competentes".</li>
+        <li>Conexão: Use fotos de mãos dadas ou olhares diretos para reforçar o nome "Entre Nós".</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong class="gold">Entre Nós</strong> — Os 4 Pilares do Empreendedorismo.</p>
+      <p>Conexão, propósito, estratégia e liberdade para mulheres protagonistas.</p>
+      <div class="footer-actions">
+        <a href="https://www.instagram.com/silmara_stylist/" class="ig-btn" target="_blank" rel="noopener noreferrer">Instagram @silmara_stylist</a>
+        <a href="#inicio" class="footer-link">Voltar ao topo ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script is:inline>
+    const carousel = document.querySelector('[data-carousel]');
+    if (carousel) {
+      const track = carousel.querySelector('[data-track]');
+      const prev = carousel.querySelector('[data-prev]');
+      const next = carousel.querySelector('[data-next]');
+      const dotsWrap = document.querySelector('[data-dots]');
+      const cards = Array.from(carousel.querySelectorAll('.speaker-card'));
+      let current = 0;
+      let timer;
+
+      const goTo = (index) => {
+        current = (index + cards.length) % cards.length;
+        track.scrollTo({ left: cards[current].offsetLeft, behavior: 'smooth' });
+        if (dotsWrap) [...dotsWrap.children].forEach((d, i) => d.setAttribute('aria-current', i === current ? 'true' : 'false'));
+      };
+
+      const startAuto = () => { timer = setInterval(() => goTo(current + 1), 4300); };
+      const stopAuto = () => clearInterval(timer);
+
+      if (dotsWrap) {
+        cards.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'dot';
+          dot.addEventListener('click', () => goTo(i));
+          dotsWrap.appendChild(dot);
+        });
+      }
+
+      prev?.addEventListener('click', () => goTo(current - 1));
+      next?.addEventListener('click', () => goTo(current + 1));
+      carousel.addEventListener('mouseenter', stopAuto);
+      carousel.addEventListener('mouseleave', startAuto);
+      goTo(0);
+      startAuto();
+    }
+  </script>
+</MainLayout>
