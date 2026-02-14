@@ -38,7 +38,7 @@ main { padding-top: var(--nav-offset); }
 .nav-links a:hover { color: var(--c-gold-2); border-color: var(--c-gold-2); }
 .nav-links .nav-cta { padding: 11px 16px; border-radius: 999px; color: var(--c-dark); background: linear-gradient(135deg, var(--c-gold-1), var(--c-gold-2) 42%, var(--c-gold-3)); border: 0; box-shadow: 0 8px 22px rgba(0,0,0,.22); }
 
-.panel { min-height: 100svh; padding: clamp(48px, 6vw, 72px) 0; display: flex; align-items: center; }
+.panel { min-height: auto; padding: clamp(42px, 5vw, 64px) 0; display: flex; align-items: center; }
 .panel + .panel { border-top: 1px solid color-mix(in srgb, var(--c-gold-2) 14%, transparent); }
 .panel-hero { position: relative; min-height: calc(100svh - var(--nav-offset)); padding-bottom: 52px; background: radial-gradient(circle at 72% 18%, color-mix(in srgb, var(--c-gold-2) 14%, transparent), transparent 50%), linear-gradient(135deg, var(--c-ruby), var(--c-dark)); }
 .panel-dark { background: linear-gradient(135deg, #3a0c06, var(--c-dark)); }
@@ -71,6 +71,7 @@ p, li { font-size: 1rem; line-height: 1.6; }
 .panel-second li { color: var(--c-text-secondary); }
 
 .text-secondary-dark { color: var(--c-text-secondary-dark); }
+.panel-speakers .text-secondary-dark { color: var(--c-text-secondary); }
 .text-secondary-light { color: var(--c-text-on-card); }
 
 .hero-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 12px; }
@@ -130,16 +131,16 @@ p, li { font-size: 1rem; line-height: 1.6; }
   border: 1px solid color-mix(in srgb, var(--c-gold-2) 56%, transparent);
 }
 
-.speaker-carousel { margin-top: 18px; display: grid; grid-template-columns: 56px 1fr 56px; align-items: center; gap: 14px; }
-.carousel-btn { width: 56px; height: 56px; border-radius: 16px; cursor: pointer; border: 1px solid color-mix(in srgb, var(--c-gold-2) 80%, transparent); background: linear-gradient(160deg, #6a140a, #4e0e07); color: var(--c-gold-2); font-size: 1.9rem; box-shadow: 0 8px 20px rgba(0,0,0,.25); transition: transform .2s ease, filter .2s ease; }
+.speaker-carousel { margin-top: 18px; display: grid; grid-template-columns: 48px 1fr 48px; align-items: center; gap: 12px; }
+.carousel-btn { width: 48px; height: 48px; border-radius: 14px; cursor: pointer; border: 1px solid color-mix(in srgb, var(--c-gold-2) 80%, transparent); background: linear-gradient(160deg, #6a140a, #4e0e07); color: var(--c-gold-2); font-size: 1.6rem; box-shadow: 0 8px 20px rgba(0,0,0,.25); transition: transform .2s ease, filter .2s ease; }
 .carousel-btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
 .carousel-viewport { overflow: hidden; border-radius: 18px; }
 .carousel-track { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
 .carousel-track::-webkit-scrollbar { display: none; }
-.speaker-card { min-width: min(980px,100%); width: min(980px,100%); scroll-snap-align: center; border: 1px solid color-mix(in srgb, var(--c-gold-2) 60%, transparent); border-radius: 18px; padding: 0; overflow: hidden; background: linear-gradient(135deg,#7f1f0e,#5d1308); display: grid; grid-template-columns: .42fr .58fr; gap: 0; align-items: stretch; }
-.speaker-media { border-radius: 0; overflow: hidden; border-right: 1px solid color-mix(in srgb, var(--c-gold-2) 45%, transparent); background: linear-gradient(135deg,#7f1f0e,#5d1308); }
-.speaker-card img { width: 100%; height: 100%; min-height: 420px; object-fit: contain; display:block; margin:0; background: linear-gradient(135deg,#7f1f0e,#5d1308); filter: saturate(.9) contrast(.98); }
-.speaker-content { padding: 26px 26px 24px; background: linear-gradient(135deg,#7f1f0e,#5d1308); }
+.speaker-card { min-width: min(760px,100%); width: min(760px,100%); scroll-snap-align: center; border: 1px solid color-mix(in srgb, var(--c-gold-2) 60%, transparent); border-radius: 18px; padding: 0; overflow: hidden; background: transparent; display: grid; grid-template-columns: .42fr .58fr; gap: 0; align-items: stretch; }
+.speaker-media { border-radius: 0; overflow: hidden; border-right: 1px solid color-mix(in srgb, var(--c-gold-2) 45%, transparent); background: transparent; }
+.speaker-card img { width: 100%; height: 100%; min-height: 320px; object-fit: contain; display:block; margin:0; background: transparent; filter: saturate(.95) contrast(.99); }
+.speaker-content { padding: 22px 22px 20px; background: transparent; }
 .speaker-content p { margin: 0; }
 .speaker-card-empty { min-height: 280px; place-items: center; }
 
@@ -192,18 +193,18 @@ li + li { margin-top: 8px; }
 
 :focus-visible { outline: 3px solid var(--c-gold-3); outline-offset: 3px; border-radius: 8px; }
 
-.panel-speakers { background: #f7f3ee; color: #2f180f; position: relative; overflow: hidden; }
-.panel-speakers::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 8% 18%, rgba(190,151,110,.18), transparent 30%), radial-gradient(circle at 92% 70%, rgba(190,151,110,.16), transparent 28%); pointer-events: none; }
+.panel-speakers { background: transparent; color: var(--c-gold-soft); position: relative; overflow: visible; }
+.panel-speakers::before { content: none; }
 .panel-speakers .container { position: relative; z-index: 1; }
-.panel-speakers h2 { color: #2f180f; letter-spacing: .03em; }
-.panel-speakers .eyebrow { color:#7f1f0e; }
+.panel-speakers h2 { color: var(--c-gold-3); letter-spacing: .03em; }
+.panel-speakers .eyebrow { color: var(--c-gold-2); }
 
 @media (max-width: 1920px) {
   .container { padding-inline: 32px; }
 }
 
 @media (max-width: 980px) {
-  .panel { min-height: 100svh; padding: 56px 0; }
+  .panel { min-height: auto; padding: 48px 0; }
   :root { --nav-offset: 124px; }
   .hero-grid, .speaker-card { grid-template-columns: 1fr; }
   .hero-copy { max-width: 100%; }
@@ -212,7 +213,7 @@ li + li { margin-top: 8px; }
   .carousel-btn { display: none; }
   .hero-image-wrap { min-height: min(55svh, 500px); }
   .hero-image { width: min(108%, 800px); max-height: min(62svh, 820px); transform: translateX(6%); }
-  .speaker-card img { height: 320px; }
+  .speaker-card img { height: 260px; min-height: 260px; }
   .manifesto-grid, .pillars-grid { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; gap: 18px; }
   .brand img { width: 140px; }
